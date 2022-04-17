@@ -352,3 +352,6 @@ MigrationBackup/
 
 # Ignore Wordpress uploads
 wp-content/uploads/
+
+# Ignore Wordpress plugins
+wp-content/plugins/all-in-one-wp-migration/
