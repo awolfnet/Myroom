@@ -1,0 +1,92 @@
+.mobius-studio-bordered-title .mobius-elementor-heading-title {
+  font-size: 17px;
+  line-height: 1.4;
+  font-weight: 500; }
+
+.mobius-studio-bordered-title .mobius-elementor-heading-subtitle {
+  font-size: 13px;
+  line-height: 1.8;
+  font-weight: 500;
+  opacity: .54; }
+
+.mobius-studio-bordered-title .mobius-elementor-heading-title,
+.mobius-studio-bordered-title .mobius-elementor-heading-subtitle {
+  margin: 0; }
+  .mobius-studio-bordered-title .mobius-elementor-heading-title a,
+  .mobius-studio-bordered-title .mobius-elementor-heading-subtitle a {
+    color: inherit; }
+
+.mobius-studio-posts-carousel img {
+  display: block; }
+
+.mobius-studio-posts-carousel a {
+  display: block; }
+
+.mobius-studio-posts-carousel .swiper-slide {
+  overflow: hidden;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.4);
+  margin-bottom: 5px; }
+
+.mobius-studio-posts-carousel .mobius-studio-posts-carousel-caption {
+  padding: 8px 5px;
+  font-size: 12px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%; }
+
+.mobius-studio-posts-carousel .mobius-studio-posts-carousel-read-more-link {
+  font-size: 10px;
+  line-height: 1;
+  margin-top: 5px; }
+
+.mobius-studio-timeline-item {
+  padding-left: 45px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  position: relative;
+  display: flex;
+  align-items: center; }
+  .mobius-studio-timeline-item .image-wrap {
+    display: block;
+    float: left;
+    margin-right: 20px;
+    flex-grow: 0;
+    flex-shrink: 0; }
+    .mobius-studio-timeline-item .image-wrap img {
+      display: block; }
+  .mobius-studio-timeline-item .contents {
+    float: left; }
+    .mobius-studio-timeline-item .contents * {
+      margin: 0; }
+  .mobius-studio-timeline-item:after {
+    content: '';
+    display: block;
+    clear: both; }
+  .mobius-studio-timeline-item:before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background-color: #F0F0F0; }
+  .mobius-studio-timeline-item:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 10px;
+    height: 10px;
+    margin-top: -10px;
+    border-radius: 50%;
+    border: 4px solid #F0F0F0;
+    background-color: #fff;
+    box-sizing: content-box; }
+
+.elementor-widget-timeline_item:not(:last-child) {
+  margin-bottom: auto; }
+
+@media (max-width: 479px) {
+  .elementor-image-gallery .gallery.gallery-columns-3 .gallery-item {
+    max-width: calc(100% / 3); } }

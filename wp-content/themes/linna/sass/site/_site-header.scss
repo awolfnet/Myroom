@@ -1,0 +1,49 @@
+.site-header {
+	.site-row {
+		height: 55px;
+	}
+
+	a {
+		color: #FFF;
+		display: block;
+	}
+
+	a, button {
+		height: 100%;
+		display: flex;
+	}
+
+	[class*=site-col] {
+		margin-bottom: 0;
+	}
+}
+
+.site-logo {
+	text-decoration: none;
+
+	img {
+		display: block;
+		max-height: 100%;
+		width: auto;
+	}
+}
+
+.site-sidebar-opener {
+	color: rgba(255, 255, 255, 0.87);
+	height: 17px;
+	margin: 0;
+	background-color: transparent;
+	border: none;
+}
+
+.site-header-icon-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.site-logo-text{
+	font-family: Roboto,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+	font-size: 16px;
+	font-weight: 500;
+}

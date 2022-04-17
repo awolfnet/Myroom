@@ -1,0 +1,34 @@
+.site-primary-bg{
+  background-color: $color__primary;
+  color: $color__primary-content;
+}
+
+.site-float-left{
+  float: left;
+}
+
+.site-float-right{
+  float: right;
+}
+
+.site-divider{
+  height: 1px;
+  background: rgba(0,0,0,.12);
+  margin: 13px 0;
+}
+
+.site-content{
+  padding-top: 20px;
+}
+
+#page .site-content{
+  padding-top: 0;
+}
+
+.page-header{
+  .page-description,
+  .page-title{
+    display: inline-block;
+    margin-top: 0;
+  }
+}

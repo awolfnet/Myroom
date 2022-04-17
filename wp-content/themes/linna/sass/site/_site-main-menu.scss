@@ -1,0 +1,80 @@
+.main-navigation{
+  margin-top: 15px;
+
+  ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li{
+    position: relative;
+
+    button{
+      outline: none;
+    }
+
+    &.menu-item-has-children{
+      > a{
+        padding-right: 40px;
+      }
+    }
+
+    .submenu-expand{
+      background-color: transparent;
+      border: none;
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 51px;
+      width: 40px;
+
+      svg{
+        width: 18px;
+        height: 18px;
+      }
+    }
+
+    a{
+      padding: 17px 20px;
+      color: #818181;
+      font-size: 1.3rem;
+      font-weight: 300;
+      display: block;
+
+      &[aria-expanded="true"]{
+        background-color: rgba(0,0,0,.06);
+        color: $color__primary;
+
+        + button{
+          color: $color__primary;
+        }
+
+        ~ ul{
+          display: block;
+        }
+      }
+
+      svg{
+        color: inherit;
+        fill: currentColor;
+        width: 17px;
+        height: 17px;
+        vertical-align: middle;
+        margin-right: 15px;
+      }
+
+      span{
+        vertical-align: middle;
+      }
+    }
+
+    ul{
+      display: none;
+
+      a{
+        padding-left: 53px;
+      }
+    }
+  }
+}

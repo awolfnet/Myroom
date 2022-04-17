@@ -8,61 +8,34 @@
  *
  * This file contains the following configurations:
  *
- * * Database settings
+ * * MySQL settings
  * * Secret keys
  * * Database table prefix
  * * ABSPATH
- *
- * This has been slightly modified (to read environment variables) for use in Docker.
  *
  * @link https://wordpress.org/support/article/editing-wp-config-php/
  *
  * @package WordPress
  */
 
-// IMPORTANT: this file needs to stay in-sync with https://github.com/WordPress/WordPress/blob/master/wp-config-sample.php
-// (it gets parsed by the upstream wizard in https://github.com/WordPress/WordPress/blob/f27cb65e1ef25d11b535695a660e7282b98eb742/wp-admin/setup-config.php#L356-L392)
-
-// a helper function to lookup "env_FILE", "env", then fallback
-if (!function_exists('getenv_docker')) {
-	// https://github.com/docker-library/wordpress/issues/588 (WP-CLI will load this file 2x)
-	function getenv_docker($env, $default) {
-		if ($fileEnv = getenv($env . '_FILE')) {
-			return rtrim(file_get_contents($fileEnv), "\r\n");
-		}
-		else if (($val = getenv($env)) !== false) {
-			return $val;
-		}
-		else {
-			return $default;
-		}
-	}
-}
-
-// ** Database settings - You can get this info from your web host ** //
+// ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', getenv_docker('WORDPRESS_DB_NAME', 'wordpress') );
+define( 'DB_NAME', 'wp_myroom' );
 
-/** Database username */
-define( 'DB_USER', getenv_docker('WORDPRESS_DB_USER', 'example username') );
+/** MySQL database username */
+define( 'DB_USER', 'myroom' );
 
-/** Database password */
-define( 'DB_PASSWORD', getenv_docker('WORDPRESS_DB_PASSWORD', 'example password') );
+/** MySQL database password */
+define( 'DB_PASSWORD', '7EqJudIThoLzw7iz' );
 
-/**
- * Docker image fallback values above are sourced from the official WordPress installation wizard:
- * https://github.com/WordPress/WordPress/blob/f9cc35ebad82753e9c86de322ea5c76a9001c7e2/wp-admin/setup-config.php#L216-L230
- * (However, using "example username" and "example password" in your database is strongly discouraged.  Please use strong, random credentials!)
- */
-
-/** Database hostname */
-define( 'DB_HOST', getenv_docker('WORDPRESS_DB_HOST', 'mysql') );
+/** MySQL hostname */
+define( 'DB_HOST', 'localhost' );
 
 /** Database charset to use in creating database tables. */
-define( 'DB_CHARSET', getenv_docker('WORDPRESS_DB_CHARSET', 'utf8') );
+define( 'DB_CHARSET', 'utf8mb4' );
 
 /** The database collate type. Don't change this if in doubt. */
-define( 'DB_COLLATE', getenv_docker('WORDPRESS_DB_COLLATE', '') );
+define( 'DB_COLLATE', '' );
 
 /**#@+
  * Authentication unique keys and salts.
@@ -75,15 +48,14 @@ define( 'DB_COLLATE', getenv_docker('WORDPRESS_DB_COLLATE', '') );
  *
  * @since 2.6.0
  */
-define( 'AUTH_KEY',         getenv_docker('WORDPRESS_AUTH_KEY',         'e300786c77d2f43cc2e61bfc9e634dbcb56a2618') );
-define( 'SECURE_AUTH_KEY',  getenv_docker('WORDPRESS_SECURE_AUTH_KEY',  '69121da5c5808309eb70d0d9c44855f1ca04ae8b') );
-define( 'LOGGED_IN_KEY',    getenv_docker('WORDPRESS_LOGGED_IN_KEY',    'd801bd948818e09f96c8a8cb1c2cea704a22e405') );
-define( 'NONCE_KEY',        getenv_docker('WORDPRESS_NONCE_KEY',        '323dde1cf342834e741ffaf3550ff153ef13983e') );
-define( 'AUTH_SALT',        getenv_docker('WORDPRESS_AUTH_SALT',        'a0a090d6d082feed3d93e53cd98c9fbdd3b8e8e7') );
-define( 'SECURE_AUTH_SALT', getenv_docker('WORDPRESS_SECURE_AUTH_SALT', '3b1e3d93236d93a1d7006422dfc698134a7f2d7f') );
-define( 'LOGGED_IN_SALT',   getenv_docker('WORDPRESS_LOGGED_IN_SALT',   '9fdcad8cab30fa0460de53387dab3eed7f3e1205') );
-define( 'NONCE_SALT',       getenv_docker('WORDPRESS_NONCE_SALT',       '926ae58533d1e836b9dcdcd6da368d7d620e14eb') );
-// (See also https://wordpress.stackexchange.com/a/152905/199287)
+define( 'AUTH_KEY',         'B?FL{enPf|)>{O2&tO|G)f(T>}tB-ETm;6#2fe*?Ak4/U+KBOb;fW(.(2?SOf#3@' );
+define( 'SECURE_AUTH_KEY',  'Qus&T<zD 3+Wy}X]ybB2D^yvcaNUi#4Vr%CDh7L&JiL#A _mp#}Rstl~#T9$lOA%' );
+define( 'LOGGED_IN_KEY',    'w<f9Fe1g)S=EOzVTxt:Z6>302{K+T;^;1FT9KEeIf(to(l!ah_>25<L3{7pN`X!o' );
+define( 'NONCE_KEY',        'M^^X{.^Ck6d3Q+7?vv_-w_lw3]at:a)=tvWyHk4f*;Y|@e33k</ALE.%J[IkAUFr' );
+define( 'AUTH_SALT',        'Z,bRYR!U)#I4GJj[U~stwuwtT7?WS*_qsz@Ik`V`.Cu5X>0 %?!}vSpM~]BJ*CWb' );
+define( 'SECURE_AUTH_SALT', 'G8p>j3JLmY5UhDt-Su^;xKjM$TL@UGOIyx&Eu2H.1 r3pXE<{jfAT~B9ss>hX03Z' );
+define( 'LOGGED_IN_SALT',   '1;mg>rVA()+i9yJZMbxb-r$,)HSKTd(W7};=A3ynr07I>()sRwu_bTFQCw0Qy`//' );
+define( 'NONCE_SALT',       '4,iThw:K;E-fO>JAPz1.]g^/Uf2PT3Qk [2CqN`d,qYzUk?1dhd(2OZE{bJD)j9r' );
 
 /**#@-*/
 
@@ -93,7 +65,7 @@ define( 'NONCE_SALT',       getenv_docker('WORDPRESS_NONCE_SALT',       '926ae58
  * You can have multiple installations in one database if you give each
  * a unique prefix. Only numbers, letters, and underscores please!
  */
-$table_prefix = getenv_docker('WORDPRESS_TABLE_PREFIX', 'wp_');
+$table_prefix = 'wp_';
 
 /**
  * For developers: WordPress debugging mode.
@@ -107,21 +79,18 @@ $table_prefix = getenv_docker('WORDPRESS_TABLE_PREFIX', 'wp_');
  *
  * @link https://wordpress.org/support/article/debugging-in-wordpress/
  */
-define('WP_DEBUG',true);
-//define( 'WP_DEBUG', !!getenv_docker('WORDPRESS_DEBUG', '') );
+define( 'WP_DEBUG', true );
+define( 'WP_DEBUG_LOG', true );
+define( 'WP_DEBUG_DISPLAY', true );
+
+/**
+ * Disable automatic update
+ */
+define( 'AUTOMATIC_UPDATER_DISABLED', true );
 
 /* Add any custom values between this line and the "stop editing" line. */
 
-// If we're behind a proxy server and using HTTPS, we need to alert WordPress of that fact
-// see also https://wordpress.org/support/article/administration-over-ssl/#using-a-reverse-proxy
-if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && strpos($_SERVER['HTTP_X_FORWARDED_PROTO'], 'https') !== false) {
-	$_SERVER['HTTPS'] = 'on';
-}
-// (we include this by default because reverse proxying is extremely common in container environments)
 
-if ($configExtra = getenv_docker('WORDPRESS_CONFIG_EXTRA', '')) {
-	eval($configExtra);
-}
 
 /* That's all, stop editing! Happy publishing. */
 

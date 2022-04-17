@@ -1,0 +1,31 @@
+.mobius-studio-posts-carousel{
+
+	img{
+		display: block;
+	}
+
+	a{
+		display: block;
+	}
+
+	.swiper-slide{
+		overflow: hidden;
+		box-shadow: 0 0 3px 0 rgba(0,0,0,.4);
+		margin-bottom: 5px;
+	}
+
+	.mobius-studio-posts-carousel-caption{
+		padding: 8px 5px;
+		font-size: 12px;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		white-space: nowrap;
+		width: 100%;
+	}
+
+	.mobius-studio-posts-carousel-read-more-link{
+		font-size: 10px;
+		line-height: 1;
+		margin-top: 5px;
+	}
+}

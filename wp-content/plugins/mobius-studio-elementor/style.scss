@@ -1,0 +1,11 @@
+@import "widgets/title-with-subtitle-widget/style";
+@import "widgets/posts-carousel/style";
+@import "widgets/timeline-item/style";
+
+
+@media (max-width: 479px){
+	.elementor-image-gallery .gallery.gallery-columns-3 .gallery-item{
+		max-width: calc(100% / 3);
+	}
+}
+

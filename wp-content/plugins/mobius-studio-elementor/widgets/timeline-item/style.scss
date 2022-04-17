@@ -1,0 +1,66 @@
+.mobius-studio-timeline-item{
+	padding-left: 45px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	position: relative;
+	display: flex;
+	align-items: center;
+
+	.image-wrap{
+		display: block;
+		float: left;
+		margin-right: 20px;
+		flex-grow: 0;
+		flex-shrink: 0;
+
+		img{
+			display: block;
+		}
+	}
+
+	.contents{
+		float: left;
+
+		*{
+			margin: 0;
+		}
+	}
+
+	&:after{
+		content: '';
+		display: block;
+		clear: both;
+	}
+
+	.mobius-elementor-timeline-title{
+
+	}
+
+	&:before{
+		content: '';
+		position: absolute;
+		left: 7px;
+		top: 0;
+		bottom: 0;
+		width: 4px;
+		background-color: #F0F0F0;
+	}
+
+	&:after{
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 50%;
+		width: 10px;
+		height: 10px;
+		margin-top: -10px;
+		border-radius: 50%;
+		border: 4px solid #F0F0F0;
+		background-color: #fff;
+		box-sizing: content-box;
+	}
+}
+
+.elementor-widget-timeline_item:not(:last-child) {
+	margin-bottom: auto;
+}

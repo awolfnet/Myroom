@@ -1,0 +1,126 @@
+/*
+Theme Name: Linna
+Theme URI: https://mobius.studio/linna-responsive-wordpress-mobile-theme
+Author: Mobius Studio
+Author URI: https://mobius.studio/
+Description: Linna is our best WordPress theme yet. Linna is so care free to get start. It features the best demo content importer. You will be ready to go in seconds. It features the best code quality and best value out of free plugins. Elementor page builder helps tremendously while you create beautiful custom pages. We also created custom elementor widgets to enrich free elementor library for you. With the extended option panel, you can change font, style, background color, sidebar position and many more.
+Requires at least: 4.7
+Requires PHP: 5.6
+Version: 1.0.0
+License: Themeforest Split License
+License URI: https://help.author.envato.com/hc/en-us/articles/360000534646-What-is-Split-Licensing-and-the-GPL-
+Text Domain: linna
+Tags: one-column, flexible-header, custom-colors, custom-menu, custom-logo, editor-style, featured-images, sticky-post, threaded-comments, translation-ready
+*/
+
+/*
+	*.* Table Of Contents
+
+	1.0 Typography
+	2.0 Headings
+	3.0 Normalize
+	4.0 Accessibility
+	5.0 Alignment
+	6.0 Clearings
+	7.0 Grid
+	8.0 Site General
+	9.0 Site Header
+	10.0 Site Sidebar
+	11.0 Site Main Menu
+	12.0 Site Social Link Balls
+	13.0 Comments
+	14.0 404 Page
+	15.0 Forms/Inputs
+	16.0 Single Page
+	17.0 Navigation Links
+	18.0 Post Format Gallery
+	19.0 Post Page Numbers
+	20.0 Widgets
+	21.0 Search Form
+	22.0 Elementor Icon Box
+	23.0 Elementor Image Carousel
+	24.0 Galleries
+	25.0 WooCommerce
+*/
+
+@import "sass/variables-site/variables-site";
+
+@import "sass/mixins/mixins-master";
+
+/* 1.0 Typography */
+@import "sass/typography/typography";
+
+/* 2.0 Headings */
+@import "sass/typography/headings";
+
+/* 3.0 Normalize */
+@import "sass/normalize";
+
+/* 4.0 Accessibility */
+@import "sass/modules/accessibility";
+
+/* 5.0 Alignment */
+@import "sass/modules/alignments";
+
+/* 6.0 Clearings */
+@import "sass/modules/clearings";
+
+/* 7.0 Grid */
+@import "sass/site/site-grid";
+
+/* 8.0 Site General */
+@import "sass/site/site-general";
+
+/* 9.0 Site Header */
+@import "sass/site/site-header";
+
+/* 10.0 Site Sidebar */
+@import "sass/site/site-sidebar";
+
+/* 11.0 Site Main Menu */
+@import "sass/site/site-main-menu";
+
+/* 12.0 Site Social Link Balls */
+@import "sass/site/site-social-link-ball";
+
+/* 13.0 Comments */
+@import "sass/site/comments";
+
+/* 14.0 404 Page */
+@import "sass/site/site-404";
+
+/* 15.0 Forms/Inputs */
+@import "sass/site/site-form";
+
+/* 16.0 Single Page */
+@import "sass/archive/single";
+
+/* 17.0 Navigation Links */
+@import "sass/archive/nav-links";
+
+/* 18.0 Post Format Gallery */
+@import "sass/archive/post-format-gallery";
+
+/* 19.0 Post Page Numbers */
+@import "sass/archive/post-page-numbers";
+
+/* 20.0 Widgets */
+@import "sass/widgets/widget";
+
+/* 21.0 Search Form */
+@import "sass/widgets/search-form";
+
+/* 22.0 Elementor Icon Box */
+@import "sass/elementor/icon-box";
+
+/* 23.0 Elementor Image Carousel */
+@import "sass/elementor/image-carousel";
+
+/* 24.0 Galleries */
+@import "sass/media/galleries";
+
+/* 25.0 Galleries */
+@import "sass/site/woocommerce";
+
+
+

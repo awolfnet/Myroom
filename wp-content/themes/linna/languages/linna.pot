@@ -1,0 +1,1349 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: Linna\n"
+"POT-Creation-Date: 2020-02-09 01:39+0300\n"
+"PO-Revision-Date: 2020-02-09 01:39+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: style.css\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: 404.php:19
+msgid "4o4"
+msgstr ""
+
+#: 404.php:23
+msgid "Oops! That page can&rsquo;t be found."
+msgstr ""
+
+#: 404.php:28
+msgid "It looks like nothing was found at this location. Maybe try a search?"
+msgstr ""
+
+#. translators: %s: comment author link
+#: classes/class-linna-walker-comment.php:67
+#, php-format
+msgid "%s <span class=\"screen-reader-text says\">says:</span>"
+msgstr ""
+
+#. translators: 1: comment date, 2: comment time
+#: classes/class-linna-walker-comment.php:87
+#, php-format
+msgid "%1$s at %2$s"
+msgstr ""
+
+#: classes/class-linna-walker-comment.php:95
+msgid "Edit"
+msgstr ""
+
+#: classes/class-linna-walker-comment.php:100
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: classes/class-tgm-plugin-activation.php:332
+msgid "Install Required Plugins"
+msgstr ""
+
+#: classes/class-tgm-plugin-activation.php:333
+msgid "Install Plugins"
+msgstr ""
+
+#. translators: %s: plugin name.
+#: classes/class-tgm-plugin-activation.php:335
+#, php-format
+msgid "Installing Plugin: %s"
+msgstr ""
+
+#. translators: %s: plugin name.
+#: classes/class-tgm-plugin-activation.php:337
+#, php-format
+msgid "Updating Plugin: %s"
+msgstr ""
+
+#: classes/class-tgm-plugin-activation.php:338
+msgid "Something went wrong with the plugin API."
+msgstr ""
+
+#: classes/class-tgm-plugin-activation.php:341
+#, php-format
+msgid "This theme requires the following plugin: %1$s."
+msgid_plural "This theme requires the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: classes/class-tgm-plugin-activation.php:347
+#, php-format
+msgid "This theme recommends the following plugin: %1$s."
+msgid_plural "This theme recommends the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: classes/class-tgm-plugin-activation.php:353
+#, php-format
+msgid ""
+"The following plugin needs to be updated to its latest version to ensure "
+"maximum compatibility with this theme: %1$s."
+msgid_plural ""
+"The following plugins need to be updated to their latest version to ensure "
+"maximum compatibility with this theme: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: classes/class-tgm-plugin-activation.php:359
+#, php-format
+msgid "There is an update available for: %1$s."
+msgid_plural "There are updates available for the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: classes/class-tgm-plugin-activation.php:365
+#, php-format
+msgid "The following required plugin is currently inactive: %1$s."
+msgid_plural "The following required plugins are currently inactive: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: classes/class-tgm-plugin-activation.php:371
+#, php-format
+msgid "The following recommended plugin is currently inactive: %1$s."
+msgid_plural "The following recommended plugins are currently inactive: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: classes/class-tgm-plugin-activation.php:376
+msgid "Begin installing plugin"
+msgid_plural "Begin installing plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: classes/class-tgm-plugin-activation.php:381
+msgid "Begin updating plugin"
+msgid_plural "Begin updating plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: classes/class-tgm-plugin-activation.php:386
+msgid "Begin activating plugin"
+msgid_plural "Begin activating plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: classes/class-tgm-plugin-activation.php:390
+msgid "Return to Required Plugins Installer"
+msgstr ""
+
+#: classes/class-tgm-plugin-activation.php:391
+#: classes/class-tgm-plugin-activation.php:910
+#: classes/class-tgm-plugin-activation.php:2616
+#: classes/class-tgm-plugin-activation.php:3663
+msgid "Return to the Dashboard"
+msgstr ""
+
+#: classes/class-tgm-plugin-activation.php:392
+#: classes/class-tgm-plugin-activation.php:3242
+msgid "Plugin activated successfully."
+msgstr ""
+
+#: classes/class-tgm-plugin-activation.php:393
+#: classes/class-tgm-plugin-activation.php:3035
+msgid "The following plugin was activated successfully:"
+msgid_plural "The following plugins were activated successfully:"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: plugin name.
+#: classes/class-tgm-plugin-activation.php:395
+#, php-format
+msgid "No action taken. Plugin %1$s was already active."
+msgstr ""
+
+#. translators: 1: plugin name.
+#: classes/class-tgm-plugin-activation.php:397
+#, php-format
+msgid ""
+"Plugin not activated. A higher version of %s is needed for this theme. "
+"Please update the plugin."
+msgstr ""
+
+#. translators: 1: dashboard link.
+#: classes/class-tgm-plugin-activation.php:399
+#, php-format
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr ""
+
+#: classes/class-tgm-plugin-activation.php:400
+msgid "Dismiss this notice"
+msgstr ""
+
+#: classes/class-tgm-plugin-activation.php:401
+msgid ""
+"There are one or more required or recommended plugins to install, update or "
+"activate."
+msgstr ""
+
+#: classes/class-tgm-plugin-activation.php:402
+msgid "Please contact the administrator of this site for help."
+msgstr ""
+
+#: classes/class-tgm-plugin-activation.php:605
+msgid "This plugin needs to be updated to be compatible with your theme."
+msgstr ""
+
+#: classes/class-tgm-plugin-activation.php:606
+msgid "Update Required"
+msgstr ""
+
+#: classes/class-tgm-plugin-activation.php:1017
+msgid ""
+"The remote plugin package does not contain a folder with the desired slug "
+"and renaming did not work."
+msgstr ""
+
+#: classes/class-tgm-plugin-activation.php:1017
+#: classes/class-tgm-plugin-activation.php:1020
+msgid ""
+"Please contact the plugin provider and ask them to package their plugin "
+"according to the WordPress guidelines."
+msgstr ""
+
+#: classes/class-tgm-plugin-activation.php:1020
+msgid ""
+"The remote plugin package consists of more than one file, but the files are "
+"not packaged in a folder."
+msgstr ""
+
+#: classes/class-tgm-plugin-activation.php:1204
+#: classes/class-tgm-plugin-activation.php:3031
+msgctxt "plugin A *and* plugin B"
+msgid "and"
+msgstr ""
+
+#. translators: %s: version number
+#: classes/class-tgm-plugin-activation.php:2065
+#, php-format
+msgid "TGMPA v%s"
+msgstr ""
+
+#: classes/class-tgm-plugin-activation.php:2356
+msgid "Required"
+msgstr ""
+
+#: classes/class-tgm-plugin-activation.php:2359
+msgid "Recommended"
+msgstr ""
+
+#: classes/class-tgm-plugin-activation.php:2375
+msgid "WordPress Repository"
+msgstr ""
+
+#: classes/class-tgm-plugin-activation.php:2378
+msgid "External Source"
+msgstr ""
+
+#: classes/class-tgm-plugin-activation.php:2381
+msgid "Pre-Packaged"
+msgstr ""
+
+#: classes/class-tgm-plugin-activation.php:2398
+msgid "Not Installed"
+msgstr ""
+
+#: classes/class-tgm-plugin-activation.php:2402
+msgid "Installed But Not Activated"
+msgstr ""
+
+#: classes/class-tgm-plugin-activation.php:2404
+msgid "Active"
+msgstr ""
+
+#: classes/class-tgm-plugin-activation.php:2410
+msgid "Required Update not Available"
+msgstr ""
+
+#: classes/class-tgm-plugin-activation.php:2413
+msgid "Requires Update"
+msgstr ""
+
+#: classes/class-tgm-plugin-activation.php:2416
+msgid "Update recommended"
+msgstr ""
+
+#. translators: 1: install status, 2: update status
+#: classes/class-tgm-plugin-activation.php:2425
+#, php-format
+msgctxt "Install/Update Status"
+msgid "%1$s, %2$s"
+msgstr ""
+
+#. translators: 1: number of plugins.
+#: classes/class-tgm-plugin-activation.php:2471
+#, php-format
+msgctxt "plugins"
+msgid "All <span class=\"count\">(%s)</span>"
+msgid_plural "All <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: number of plugins.
+#: classes/class-tgm-plugin-activation.php:2475
+#, php-format
+msgid "To Install <span class=\"count\">(%s)</span>"
+msgid_plural "To Install <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: number of plugins.
+#: classes/class-tgm-plugin-activation.php:2479
+#, php-format
+msgid "Update Available <span class=\"count\">(%s)</span>"
+msgid_plural "Update Available <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: number of plugins.
+#: classes/class-tgm-plugin-activation.php:2483
+#, php-format
+msgid "To Activate <span class=\"count\">(%s)</span>"
+msgid_plural "To Activate <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: classes/class-tgm-plugin-activation.php:2565
+msgctxt "as in: \"version nr unknown\""
+msgid "unknown"
+msgstr ""
+
+#: classes/class-tgm-plugin-activation.php:2573
+msgid "Installed version:"
+msgstr ""
+
+#: classes/class-tgm-plugin-activation.php:2581
+msgid "Minimum required version:"
+msgstr ""
+
+#: classes/class-tgm-plugin-activation.php:2593
+msgid "Available version:"
+msgstr ""
+
+#: classes/class-tgm-plugin-activation.php:2616
+msgid "No plugins to install, update or activate."
+msgstr ""
+
+#: classes/class-tgm-plugin-activation.php:2630
+msgid "Plugin"
+msgstr ""
+
+#: classes/class-tgm-plugin-activation.php:2631
+msgid "Source"
+msgstr ""
+
+#: classes/class-tgm-plugin-activation.php:2632
+msgid "Type"
+msgstr ""
+
+#: classes/class-tgm-plugin-activation.php:2636
+msgid "Version"
+msgstr ""
+
+#: classes/class-tgm-plugin-activation.php:2637
+msgid "Status"
+msgstr ""
+
+#. translators: %2$s: plugin name in screen reader markup
+#: classes/class-tgm-plugin-activation.php:2686
+#, php-format
+msgid "Install %2$s"
+msgstr ""
+
+#. translators: %2$s: plugin name in screen reader markup
+#: classes/class-tgm-plugin-activation.php:2691
+#, php-format
+msgid "Update %2$s"
+msgstr ""
+
+#. translators: %2$s: plugin name in screen reader markup
+#: classes/class-tgm-plugin-activation.php:2697
+#, php-format
+msgid "Activate %2$s"
+msgstr ""
+
+#: classes/class-tgm-plugin-activation.php:2767
+msgid "Upgrade message from the plugin author:"
+msgstr ""
+
+#: classes/class-tgm-plugin-activation.php:2800
+msgid "Install"
+msgstr ""
+
+#: classes/class-tgm-plugin-activation.php:2806
+msgid "Update"
+msgstr ""
+
+#: classes/class-tgm-plugin-activation.php:2809
+msgid "Activate"
+msgstr ""
+
+#: classes/class-tgm-plugin-activation.php:2840
+msgid "No plugins were selected to be installed. No action taken."
+msgstr ""
+
+#: classes/class-tgm-plugin-activation.php:2842
+msgid "No plugins were selected to be updated. No action taken."
+msgstr ""
+
+#: classes/class-tgm-plugin-activation.php:2883
+msgid "No plugins are available to be installed at this time."
+msgstr ""
+
+#: classes/class-tgm-plugin-activation.php:2885
+msgid "No plugins are available to be updated at this time."
+msgstr ""
+
+#: classes/class-tgm-plugin-activation.php:2991
+msgid "No plugins were selected to be activated. No action taken."
+msgstr ""
+
+#: classes/class-tgm-plugin-activation.php:3017
+msgid "No plugins are available to be activated at this time."
+msgstr ""
+
+#: classes/class-tgm-plugin-activation.php:3241
+msgid "Plugin activation failed."
+msgstr ""
+
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
+#: classes/class-tgm-plugin-activation.php:3581
+#, php-format
+msgid "Updating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#. translators: 1: plugin name, 2: error message.
+#: classes/class-tgm-plugin-activation.php:3584
+#, php-format
+msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
+msgstr ""
+
+#. translators: 1: plugin name.
+#: classes/class-tgm-plugin-activation.php:3586
+#, php-format
+msgid "The installation of %1$s failed."
+msgstr ""
+
+#: classes/class-tgm-plugin-activation.php:3590
+msgid ""
+"The installation and activation process is starting. This process may take a "
+"while on some hosts, so please be patient."
+msgstr ""
+
+#. translators: 1: plugin name.
+#: classes/class-tgm-plugin-activation.php:3592
+#, php-format
+msgid "%1$s installed and activated successfully."
+msgstr ""
+
+#: classes/class-tgm-plugin-activation.php:3592
+#: classes/class-tgm-plugin-activation.php:3600
+msgid "Show Details"
+msgstr ""
+
+#: classes/class-tgm-plugin-activation.php:3592
+#: classes/class-tgm-plugin-activation.php:3600
+msgid "Hide Details"
+msgstr ""
+
+#: classes/class-tgm-plugin-activation.php:3593
+msgid "All installations and activations have been completed."
+msgstr ""
+
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
+#: classes/class-tgm-plugin-activation.php:3595
+#, php-format
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: classes/class-tgm-plugin-activation.php:3598
+msgid ""
+"The installation process is starting. This process may take a while on some "
+"hosts, so please be patient."
+msgstr ""
+
+#. translators: 1: plugin name.
+#: classes/class-tgm-plugin-activation.php:3600
+#, php-format
+msgid "%1$s installed successfully."
+msgstr ""
+
+#: classes/class-tgm-plugin-activation.php:3601
+msgid "All installations have been completed."
+msgstr ""
+
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
+#: classes/class-tgm-plugin-activation.php:3603
+#, php-format
+msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: comments.php:33
+msgid "Join the Conversation"
+msgstr ""
+
+#: comments.php:35 comments.php:112 comments.php:114
+msgid "Leave a comment"
+msgstr ""
+
+#. translators: %s: post title
+#: comments.php:40
+#, php-format
+msgctxt "comments title"
+msgid "One reply on &ldquo;%s&rdquo;"
+msgstr ""
+
+#: comments.php:46
+#, php-format
+msgctxt "comments title"
+msgid "%1$s reply on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s replies on &ldquo;%2$s&rdquo;"
+msgstr[0] ""
+msgstr[1] ""
+
+#: comments.php:94 comments.php:101 comments.php:103
+msgid "Comments"
+msgstr ""
+
+#: comments.php:100
+msgid "Previous"
+msgstr ""
+
+#: comments.php:103
+msgid "Next"
+msgstr ""
+
+#: comments.php:123
+msgid "Comments are closed."
+msgstr ""
+
+#: footer.php:52
+msgid "Sidebar Menu"
+msgstr ""
+
+#: functions.php:51 functions.php:121
+msgid "Primary"
+msgstr ""
+
+#: functions.php:90
+msgid "Small"
+msgstr ""
+
+#: functions.php:91
+msgid "S"
+msgstr ""
+
+#: functions.php:96
+msgid "Normal"
+msgstr ""
+
+#: functions.php:97
+msgid "M"
+msgstr ""
+
+#: functions.php:102
+msgid "Large"
+msgstr ""
+
+#: functions.php:103
+msgid "L"
+msgstr ""
+
+#: functions.php:108
+msgid "Huge"
+msgstr ""
+
+#: functions.php:109
+msgid "XL"
+msgstr ""
+
+#: functions.php:133
+msgid "Secondary"
+msgstr ""
+
+#: functions.php:145
+msgid "Dark Gray"
+msgstr ""
+
+#: functions.php:150
+msgid "Light Gray"
+msgstr ""
+
+#: functions.php:155
+msgid "White"
+msgstr ""
+
+#: functions.php:306
+msgid "iPhone X (1125px x 2436px)"
+msgstr ""
+
+#: functions.php:313
+msgid "iPhone 8, 7, 6s, 6 (750px x 1334px)"
+msgstr ""
+
+#: functions.php:320
+msgid "iPhone 8 Plus, 7 Plus, 6s Plus, 6 Plus (1242px x 2208px)"
+msgstr ""
+
+#: functions.php:327
+msgid "iPhone 5 (640px x 1136px)"
+msgstr ""
+
+#: functions.php:334
+msgid "iPad Mini, Air (1536px x 2048px)"
+msgstr ""
+
+#: functions.php:341
+msgid "iPad Pro 10.5\" (1668px x 2224px)"
+msgstr ""
+
+#: functions.php:348
+msgid "iPad Pro 12.9\" (2048px x 2732px)"
+msgstr ""
+
+#: functions.php:444
+msgid "Before Menu"
+msgstr ""
+
+#: functions.php:446
+msgid "Add widgets here to appear in above menu in sidebar."
+msgstr ""
+
+#: functions.php:456
+msgid "After Menu"
+msgstr ""
+
+#: functions.php:458
+msgid "Add widgets here to appear in below menu in sidebar."
+msgstr ""
+
+#: functions.php:468
+msgid "Blog Sidebar"
+msgstr ""
+
+#: functions.php:470
+msgid "Add widgets here to appear in sidebar.."
+msgstr ""
+
+#: image.php:52 template-parts/content/content-audio.php:81
+#: template-parts/content/content-gallery.php:67
+#: template-parts/content/content-image.php:57
+#: template-parts/content/content-page.php:27
+#: template-parts/content/content-single.php:54
+#: template-parts/content/content-video.php:81
+#: template-parts/content/content.php:42 template-parts/content/content.php:64
+msgid "Pages:"
+msgstr ""
+
+#: image.php:56
+msgid "Page"
+msgstr ""
+
+#: image.php:70
+msgctxt "Used before full size attachment link."
+msgid "Full size"
+msgstr ""
+
+#: image.php:87
+msgctxt "Parent post link"
+msgid ""
+"<span class=\"meta-nav\">Published in</span><br><span class=\"post-title\">"
+"%title</span>"
+msgstr ""
+
+#. translators: %s WordPress version
+#: inc/back-compat.php:44 inc/back-compat.php:62
+#, php-format
+msgid ""
+"Linna requires at least WordPress version 4.7. You are running version %s. "
+"Please upgrade and try again."
+msgstr ""
+
+#: inc/template-functions.php:99
+msgid "Category Archives: "
+msgstr ""
+
+#: inc/template-functions.php:101
+msgid "Tag Archives: "
+msgstr ""
+
+#: inc/template-functions.php:103
+msgid "Author Archives: "
+msgstr ""
+
+#: inc/template-functions.php:105
+msgid "Yearly Archives: "
+msgstr ""
+
+#: inc/template-functions.php:105
+msgctxt "yearly archives date format"
+msgid "Y"
+msgstr ""
+
+#: inc/template-functions.php:107
+msgid "Monthly Archives: "
+msgstr ""
+
+#: inc/template-functions.php:107
+msgctxt "monthly archives date format"
+msgid "F Y"
+msgstr ""
+
+#: inc/template-functions.php:109
+msgid "Daily Archives: "
+msgstr ""
+
+#: inc/template-functions.php:111
+msgid "Post Type Archives: "
+msgstr ""
+
+#. translators: %s: Taxonomy singular name
+#: inc/template-functions.php:115
+#, php-format
+msgid "%s Archives:"
+msgstr ""
+
+#: inc/template-functions.php:117
+msgid "Archives:"
+msgstr ""
+
+#: inc/template-tags.php:46
+msgid "Posted by"
+msgstr ""
+
+#. translators: %s: Name of current post. Only visible to screen readers.
+#: inc/template-tags.php:63
+#, php-format
+msgid "Leave a comment<span class=\"screen-reader-text\"> on %s</span>"
+msgstr ""
+
+#. translators: used between list items, there is a space after the comma.
+#: inc/template-tags.php:86 inc/template-tags.php:98
+msgid ", "
+msgstr ""
+
+#: inc/template-tags.php:92
+msgid "Posted in"
+msgstr ""
+
+#: inc/template-tags.php:104
+msgid "Tags:"
+msgstr ""
+
+#: inc/template-tags.php:115 inc/template-tags.php:325
+msgid "Read More"
+msgstr ""
+
+#. translators: %s: Name of current post. Only visible to screen readers.
+#. translators: %s: Name of current post. Only visible to screen readers
+#: inc/template-tags.php:130 template-parts/content/content-page.php:41
+#, php-format
+msgid "Edit <span class=\"screen-reader-text\">%s</span>"
+msgstr ""
+
+#. translators: %s: post date
+#: inc/template-tags.php:166
+#, php-format
+msgid "<span class=\"screen-reader-text\">Posted on</span> %s"
+msgstr ""
+
+#. translators: %s: Name of current post
+#: inc/template-tags.php:349
+#, php-format
+msgid "Edit<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr ""
+
+#: options/extensions/social_icons_field/extension_social_icons_field.php:156
+msgid "The"
+msgstr ""
+
+#: options/extensions/social_icons_field/extension_social_icons_field.php:156
+msgid "extension requires"
+msgstr ""
+
+#: options/extensions/social_icons_field/extension_social_icons_field.php:156
+msgid "version"
+msgstr ""
+
+#: options/extensions/social_icons_field/extension_social_icons_field.php:156
+msgid "or higher."
+msgstr ""
+
+#: options/extensions/social_icons_field/extension_social_icons_field.php:156
+msgid "You are currently running"
+msgstr ""
+
+#: options/extensions/social_icons_field/extension_social_icons_field.php:156
+msgid ""
+"This field will not render in your option panel, and featuress of this "
+"extension will not be available until the latest version of"
+msgstr ""
+
+#: options/extensions/social_icons_field/extension_social_icons_field.php:156
+msgid "has been installed."
+msgstr ""
+
+#: options/extensions/social_icons_field/social_icons_field/field_social_icons_field.php:175
+msgid "Link Address"
+msgstr ""
+
+#: options/extensions/social_icons_field/social_icons_field/field_social_icons_field.php:180
+#: options/redux.php:287
+msgid "Background Color"
+msgstr ""
+
+#: options/extensions/social_icons_field/social_icons_field/field_social_icons_field.php:185
+msgid "Color"
+msgstr ""
+
+#: options/redux.php:13
+msgid "Theme Options"
+msgstr ""
+
+#: options/redux.php:27
+msgid "General Settings"
+msgstr ""
+
+#: options/redux.php:29
+msgid "Custom Codes "
+msgstr ""
+
+#: options/redux.php:35
+msgid "Header CSS Code"
+msgstr ""
+
+#: options/redux.php:36
+msgid ""
+"CSS Code to place right before </head> tag. Beware, this code will be html "
+"escaped."
+msgstr ""
+
+#: options/redux.php:44
+msgid "Google Analytics"
+msgstr ""
+
+#: options/redux.php:45
+msgid "UA-XXXXX-Y"
+msgstr ""
+
+#: options/redux.php:57
+msgid "Header"
+msgstr ""
+
+#: options/redux.php:59
+msgid "Every option related to header."
+msgstr ""
+
+#: options/redux.php:68
+msgid "Height"
+msgstr ""
+
+#: options/redux.php:69
+msgid "Header Height (Logo cannot exceed the height of header)"
+msgstr ""
+
+#: options/redux.php:79
+msgid "Header Background"
+msgstr ""
+
+#: options/redux.php:80
+msgid "Header background with image, color, etc."
+msgstr ""
+
+#: options/redux.php:88
+msgid "Icon Colors"
+msgstr ""
+
+#: options/redux.php:89
+msgid "Specify the body font properties."
+msgstr ""
+
+#: options/redux.php:100
+msgid "Sticky/Fixed"
+msgstr ""
+
+#: options/redux.php:101
+msgid "Keep header on screen all times or not."
+msgstr ""
+
+#: options/redux.php:119
+msgid "Logo"
+msgstr ""
+
+#: options/redux.php:121
+msgid "Logo options"
+msgstr ""
+
+#: options/redux.php:127
+msgid "Logo Type"
+msgstr ""
+
+#: options/redux.php:128
+msgid "You can upload an image or use text as your logo"
+msgstr ""
+
+#: options/redux.php:138
+msgid "Logo Text"
+msgstr ""
+
+#: options/redux.php:139
+msgid "Will use blog name If left empty."
+msgstr ""
+
+#: options/redux.php:145
+msgid "Logo Typography"
+msgstr ""
+
+#: options/redux.php:146
+msgid "If you choose text as logo type"
+msgstr ""
+
+#: options/redux.php:164 options/redux.php:429
+msgid "Image"
+msgstr ""
+
+#: options/redux.php:173 options/redux.php:439
+msgid "Image Dimensions"
+msgstr ""
+
+#: options/redux.php:178
+msgid "Position"
+msgstr ""
+
+#: options/redux.php:179
+msgid "Align the logo."
+msgstr ""
+
+#: options/redux.php:197
+msgid "Favicons & Apple Icons"
+msgstr ""
+
+#: options/redux.php:198
+msgid ""
+"Favicons are handled by the Site Icon setting in the customizer since "
+"version 4.3."
+msgstr ""
+
+#: options/redux.php:208
+msgid "Apple Touch Icon .PNG "
+msgstr ""
+
+#: options/redux.php:209 options/redux.php:222
+msgid "Transparent or filled PNG image."
+msgstr ""
+
+#: options/redux.php:221
+msgid "Chrome Icon .PNG "
+msgstr ""
+
+#: options/redux.php:238
+msgid "Web App"
+msgstr ""
+
+#: options/redux.php:241
+msgid ""
+"You can easily create your splash screens from this page, download then "
+"upload here. This website is not related to Mobius Studio by any means."
+msgstr ""
+
+#: options/redux.php:248
+msgid "WebApp Capable"
+msgstr ""
+
+#: options/redux.php:250
+msgid "Enabled"
+msgstr ""
+
+#: options/redux.php:251
+msgid "Disabled"
+msgstr ""
+
+#: options/redux.php:258
+msgid "Status Bar Style"
+msgstr ""
+
+#: options/redux.php:260
+msgid "Black"
+msgstr ""
+
+#: options/redux.php:261
+msgid "Black Translucent"
+msgstr ""
+
+#: options/redux.php:268
+msgid "Application Name"
+msgstr ""
+
+#: options/redux.php:274
+msgid "Application Name (Short)"
+msgstr ""
+
+#: options/redux.php:280
+msgid "Theme Color"
+msgstr ""
+
+#: options/redux.php:294
+msgid "WebApp Display Mode"
+msgstr ""
+
+#: options/redux.php:296
+msgid "Fullscreen"
+msgstr ""
+
+#: options/redux.php:297
+msgid "Standalone (Native App Like)"
+msgstr ""
+
+#: options/redux.php:298
+msgid "Minimal UI"
+msgstr ""
+
+#: options/redux.php:299
+msgid "Browser"
+msgstr ""
+
+#: options/redux.php:306
+msgid "Preferred Orientation"
+msgstr ""
+
+#: options/redux.php:308
+msgid "Any"
+msgstr ""
+
+#: options/redux.php:309
+msgid "Natural"
+msgstr ""
+
+#: options/redux.php:310
+msgid "Landscape"
+msgstr ""
+
+#: options/redux.php:311
+msgid "Landscape Primary"
+msgstr ""
+
+#: options/redux.php:312
+msgid "Landscape Secondary"
+msgstr ""
+
+#: options/redux.php:313
+msgid "Portrait"
+msgstr ""
+
+#: options/redux.php:314
+msgid "Portrait Primary"
+msgstr ""
+
+#: options/redux.php:315
+msgid "Portrait Secondary"
+msgstr ""
+
+#: options/redux.php:327
+msgid "StartUp/Splash Screen"
+msgstr ""
+
+#: options/redux.php:343 options/redux.php:525
+msgid "Sidebar"
+msgstr ""
+
+#: options/redux.php:350 options/redux.php:531
+msgid "Sidebar Position"
+msgstr ""
+
+#: options/redux.php:362
+msgid "Sidebar Background"
+msgstr ""
+
+#: options/redux.php:363
+msgid "Sidebar background with image, color, etc."
+msgstr ""
+
+#: options/redux.php:369
+msgid "Text Color"
+msgstr ""
+
+#: options/redux.php:377
+msgid "Links Color"
+msgstr ""
+
+#: options/redux.php:389 options/redux.php:672
+msgid "Content Padding"
+msgstr ""
+
+#: options/redux.php:401
+msgid "Sidebar Top Background"
+msgstr ""
+
+#: options/redux.php:402
+msgid "Sidebar Top background with image, color, etc."
+msgstr ""
+
+#: options/redux.php:408
+msgid "Sidebar Top Text Color"
+msgstr ""
+
+#: options/redux.php:416
+msgid "Text 1"
+msgstr ""
+
+#: options/redux.php:422
+msgid "Text 2"
+msgstr ""
+
+#: options/redux.php:444
+msgid "Image Border Radius as %"
+msgstr ""
+
+#: options/redux.php:454
+msgid "Sidebar Top Caret Color (Closing Button)"
+msgstr ""
+
+#: options/redux.php:462 options/redux.php:722
+msgid "Socials"
+msgstr ""
+
+#: options/redux.php:480 template-parts/content/content-widgets.php:12
+msgid "Blog"
+msgstr ""
+
+#: options/redux.php:487
+msgid "Preview Position"
+msgstr ""
+
+#: options/redux.php:498
+msgid "Blog List Columns"
+msgstr ""
+
+#: options/redux.php:509
+msgid "Excerpt"
+msgstr ""
+
+#: options/redux.php:515
+msgid "Excerpt Character Length"
+msgstr ""
+
+#: options/redux.php:541
+msgid "Sidebar Size out of 12 Columns"
+msgstr ""
+
+#: options/redux.php:561
+msgid "Page Not Found"
+msgstr ""
+
+#: options/redux.php:568
+msgid "First Line"
+msgstr ""
+
+#: options/redux.php:574
+msgid "First Line Typography"
+msgstr ""
+
+#: options/redux.php:588
+msgid "First Line Margin"
+msgstr ""
+
+#: options/redux.php:594
+msgid "Second Line"
+msgstr ""
+
+#: options/redux.php:600
+msgid "Second Line Typography"
+msgstr ""
+
+#: options/redux.php:614
+msgid "Second Line Margin"
+msgstr ""
+
+#: options/redux.php:620
+msgid "Third Line"
+msgstr ""
+
+#: options/redux.php:626
+msgid "Third Line Typography"
+msgstr ""
+
+#: options/redux.php:640
+msgid "Third Line Margin"
+msgstr ""
+
+#: options/redux.php:646
+msgid "Search"
+msgstr ""
+
+#: options/redux.php:659
+msgid "Footer"
+msgstr ""
+
+#: options/redux.php:661
+msgid "Footer options"
+msgstr ""
+
+#: options/redux.php:683
+msgid "Footer Border"
+msgstr ""
+
+#: options/redux.php:697
+msgid "Footer&Copyright Text"
+msgstr ""
+
+#: options/redux.php:698
+msgid "Your copyright or any other text."
+msgstr ""
+
+#: options/redux.php:704
+msgid "Footer Typography"
+msgstr ""
+
+#: search.php:47
+msgid "Search results for:"
+msgstr ""
+
+#: single.php:57
+#, php-format
+msgid ""
+"<span class=\"meta-nav\">Published in</span><span class=\"post-title\">%s</"
+"span>"
+msgstr ""
+
+#: single.php:71
+msgid "Next Post"
+msgstr ""
+
+#: single.php:75
+msgid "Next post:"
+msgstr ""
+
+#: single.php:82
+msgid "Previous Post"
+msgstr ""
+
+#: single.php:86
+msgid "Previous post:"
+msgstr ""
+
+#: template-parts/content/content-audio.php:21
+#: template-parts/content/content-gallery.php:21
+#: template-parts/content/content-image.php:23
+#: template-parts/content/content-single.php:21
+#: template-parts/content/content-video.php:23
+#: template-parts/content/content.php:21
+msgctxt "post"
+msgid "Featured"
+msgstr ""
+
+#. translators: %s: Name of current post. Only visible to screen readers
+#: template-parts/content/content-audio.php:68
+#: template-parts/content/content-gallery.php:54
+#: template-parts/content/content-image.php:44
+#: template-parts/content/content-single.php:41
+#: template-parts/content/content-video.php:68
+#: template-parts/content/content.php:51
+#, php-format
+msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr ""
+
+#: template-parts/content/content-none.php:16
+msgid "Nothing Found"
+msgstr ""
+
+#. translators: 1: link to WP admin new post page.
+#: template-parts/content/content-none.php:26
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: template-parts/content/content-none.php:39
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: template-parts/content/content-none.php:46
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+
+#: template-parts/header/header.php:36
+msgid "View your shopping cart"
+msgstr ""
+
+#: template-parts/header/header.php:54
+msgid "Social Links Menu"
+msgstr ""
+
+#. translators: %s: post author
+#: template-parts/post/author-bio.php:17
+#, php-format
+msgid "Published by %s"
+msgstr ""
+
+#: template-parts/post/author-bio.php:26
+msgid "View more posts"
+msgstr ""
+
+#. translators: %1(X comments)$s
+#: template-parts/post/discussion-meta.php:16
+#, php-format
+msgid "%d Comment"
+msgid_plural "%d Comments"
+msgstr[0] ""
+msgstr[1] ""
+
+#: template-parts/post/discussion-meta.php:18
+msgid "No comments"
+msgstr ""
+
+#: template-parts/sidebar/sidebar-after-menu-widget.php:12
+msgid "Sidebar After Menu Widget Area"
+msgstr ""
+
+#: template-parts/sidebar/sidebar-before-menu-widget.php:12
+msgid "Sidebar Before Menu Widget Area"
+msgstr ""
+
+#. Theme Name of the plugin/theme
+msgid "Linna"
+msgstr ""
+
+#. Theme URI of the plugin/theme
+msgid "https://mobius.studio/linna-responsive-wordpress-mobile-theme"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Linna is our best WordPress theme yet. Linna is so care free to get start. "
+"It features the best demo content importer. You will be ready to go in "
+"seconds. It features the best code quality and best value out of free "
+"plugins. Elementor page builder helps tremendously while you create "
+"beautiful custom pages. We also created custom elementor widgets to enrich "
+"free elementor library for you. With the extended option panel, you can "
+"change font, style, background color, sidebar position and many more."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Mobius Studio"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://mobius.studio/"
+msgstr ""

@@ -1,0 +1,22 @@
+.mobius-studio-bordered-title{
+	.mobius-elementor-heading-title{
+		font-size: 17px;
+		line-height: 1.4;
+		font-weight: 500;
+	}
+	.mobius-elementor-heading-subtitle{
+		font-size: 13px;
+		line-height: 1.8;
+		font-weight: 500;
+		opacity: .54;
+	}
+
+	.mobius-elementor-heading-title,
+	.mobius-elementor-heading-subtitle{
+		margin: 0;
+
+		a{
+			color: inherit;
+		}
+	}
+}

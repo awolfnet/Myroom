@@ -1,0 +1,30 @@
+.woocommerce-page{
+	&:not(.elementor-page){
+		&:not(.single){
+			#main{
+				padding: 15px;
+			}
+		}
+	}
+}
+
+.site-woocommerce-header-count{
+	position: relative;
+	span{
+		position: absolute;
+		top: 27px;
+		left: 5px;
+		background-color: #D32F2F;
+		color: #fFF;
+		border-radius: 5px;
+		font-size: 9px;
+		line-height: 1.5;
+		padding: 0 4px;
+		font-weight: bold;
+	}
+}
+
+.woocommerce .woocommerce-ordering select {
+	background: transparent;
+	padding: 5px 0;
+}

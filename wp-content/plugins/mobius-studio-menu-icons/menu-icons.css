@@ -1,0 +1,146 @@
+.site-menu-chosen-icon{
+    display: block;
+}
+
+.site-menu-chosen-icon svg,
+.site-menu-chosen-icon use{
+    pointer-events: none;
+}
+
+.site-menu-chosen-icon:not(:empty){
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.site-menu-chosen-icon svg{
+    height: 30px;
+    width: 30px;
+}
+
+.site-icon-col{
+    float: left;
+    width: calc(100% / 10);
+    padding: 5px;
+    box-sizing: border-box;
+}
+.site-icon-btn{
+    background-color: rgba(0,0,0,.07);
+    border: 1px solid rgba(0,0,0,.12);
+    padding: 5px;
+    outline: none;
+}
+.site-icon-col.chosen .site-icon-btn{
+    background-color: rgba(0,0,0,1);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: #fff;
+}
+.site-icon-btn svg{
+    width: 100%;
+    height: 40px;
+    fill: currentColor;
+}
+
+.site-icon-col.hide{
+    display: none;
+}
+
+.site-icon-col use{
+    fill: currentColor;
+}
+
+.site-icon-search{
+    height: 45px;
+    line-height: 45px;
+    padding: 0 10px;
+    font-size: 20px;
+    width: 100%;
+    margin: 0;
+}
+
+label[for="site-icon-search"]{
+    display: block;
+    font-weight: bold;
+}
+
+.icons-box-content{
+    margin-top: 15px;
+}
+
+.icons-box-head{
+    padding: 0 5px 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(0,0,0,.12);
+}
+
+.icons-box-head:after{
+    clear: both;
+    display: table;
+    content: '';
+}
+
+.icons-box-head-col{
+    float: left;
+}
+
+.icons-box-head-col .site-icon-col,
+.icons-box-head-col .pull-bottom{
+    width: auto;
+    height: 55px;
+    bottom: -13px;
+    position: relative;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.icons-box-head-col .site-icon-btn{
+    height: 45px;
+}
+
+.icons-box-head-col .site-icon-btn svg{
+    height: 30px;
+}
+
+.icons-box-head-col:nth-child(1){
+    width: 50%;
+}
+
+.icons-box-head-col:nth-child(2){
+    width: 20%;
+}
+
+.icons-box-head-col:nth-child(3){
+    width: 15%;
+}
+
+.icons-box-head-col:nth-child(4){
+    width: 15%;
+}
+
+.icons-box-inner-content{
+    margin: 0 -15px -15px -15px;
+    overflow: auto;
+    height: 301px;
+    padding: 0 15px;
+}
+
+.site-clear{
+    width: 100%;
+    background-color: #933A30;
+    color: #FFF;
+    border: 1px solid rgba(0,0,0,.12);
+    height: 45px;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.site-confirm{
+    width: 100%;
+    background-color: #00a699;
+    color: #FFF;
+    border: 1px solid rgba(0,0,0,.12);
+    height: 45px;
+    line-height: 1;
+    text-transform: uppercase;
+}
