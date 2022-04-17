@@ -1,4 +1,5 @@
 <?php
+
 namespace Elementor\Core\Base;
 
 use Elementor\Core\Base\Elements_Iteration_Actions\Assets as Assets_Iteration_Action;
@@ -18,7 +19,7 @@ use Elementor\Widget_Base;
 use Elementor\Core\Settings\Page\Manager as PageManager;
 use ElementorPro\Modules\Library\Widgets\Template;
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (!defined('ABSPATH')) {
 	exit; // Exit if accessed directly
 }
 
@@ -31,7 +32,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 2.0.0
  * @abstract
  */
-abstract class Document extends Controls_Stack {
+abstract class Document extends Controls_Stack
+{
 
 	/**
 	 * Document type meta key.
@@ -98,7 +100,8 @@ abstract class Document extends Controls_Stack {
 	 * @access protected
 	 * @static
 	 */
-	protected static function get_editor_panel_categories() {
+	protected static function get_editor_panel_categories()
+	{
 		return Plugin::$instance->elements_manager->get_categories();
 	}
 
@@ -113,7 +116,8 @@ abstract class Document extends Controls_Stack {
 	 *
 	 * @return array Document properties.
 	 */
-	public static function get_properties() {
+	public static function get_properties()
+	{
 		return [
 			'has_elements' => true,
 			'is_editable' => true,
@@ -129,10 +133,11 @@ abstract class Document extends Controls_Stack {
 	 * @access public
 	 * @static
 	 */
-	public static function get_editor_panel_config() {
+	public static function get_editor_panel_config()
+	{
 		$default_route = 'panel/elements/categories';
 
-		if ( ! Plugin::instance()->role_manager->user_can( 'design' ) ) {
+		if (!Plugin::instance()->role_manager->user_can('design')) {
 			$default_route = 'panel/page-settings/settings';
 		}
 
@@ -141,11 +146,11 @@ abstract class Document extends Controls_Stack {
 			'widgets_settings' => [],
 			'elements_categories' => static::get_editor_panel_categories(),
 			'default_route' => $default_route,
-			'has_elements' => static::get_property( 'has_elements' ),
-			'support_kit' => static::get_property( 'support_kit' ),
+			'has_elements' => static::get_property('has_elements'),
+			'support_kit' => static::get_property('support_kit'),
 			'messages' => [
 				/* translators: %s: Document title. */
-				'publish_notification' => sprintf( esc_html__( 'Hurray! Your %s is live.', 'elementor' ), static::get_title() ),
+				'publish_notification' => sprintf(esc_html__('Hurray! Your %s is live.', 'elementor'), static::get_title()),
 			],
 		];
 	}
@@ -161,16 +166,19 @@ abstract class Document extends Controls_Stack {
 	 *
 	 * @return string Element title.
 	 */
-	public static function get_title() {
-		return esc_html__( 'Document', 'elementor' );
+	public static function get_title()
+	{
+		return esc_html__('Document', 'elementor');
 	}
 
-	public static function get_plural_title() {
+	public static function get_plural_title()
+	{
 		return static::get_title();
 	}
 
-	public static function get_add_new_title() {
-		return sprintf( esc_html__( 'Add New %s', 'elementor' ), static::get_title() );
+	public static function get_add_new_title()
+	{
+		return sprintf(esc_html__('Add New %s', 'elementor'), static::get_title());
 	}
 
 	/**
@@ -186,14 +194,15 @@ abstract class Document extends Controls_Stack {
 	 *
 	 * @return mixed The property value.
 	 */
-	public static function get_property( $key ) {
+	public static function get_property($key)
+	{
 		$id = static::get_class_full_name();
 
-		if ( ! isset( self::$properties[ $id ] ) ) {
-			self::$properties[ $id ] = static::get_properties();
+		if (!isset(self::$properties[$id])) {
+			self::$properties[$id] = static::get_properties();
 		}
 
-		return self::get_items( self::$properties[ $id ], $key );
+		return self::get_items(self::$properties[$id], $key);
 	}
 
 	/**
@@ -201,24 +210,27 @@ abstract class Document extends Controls_Stack {
 	 * @access public
 	 * @static
 	 */
-	public static function get_class_full_name() {
+	public static function get_class_full_name()
+	{
 		return get_called_class();
 	}
 
-	public static function get_create_url() {
+	public static function get_create_url()
+	{
 		$properties = static::get_properties();
 
 		// BC Support - Each document should define it own CPT this code is for BC support.
 		$cpt = Source_Local::CPT;
 
-		if ( isset( $properties['cpt'][0] ) ) {
+		if (isset($properties['cpt'][0])) {
 			$cpt = $properties['cpt'][0];
 		}
 
-		return Plugin::$instance->documents->get_create_new_post_url( $cpt, static::get_type() );
+		return Plugin::$instance->documents->get_create_new_post_url($cpt, static::get_type());
 	}
 
-	public function get_name() {
+	public function get_name()
+	{
 		return static::get_type();
 	}
 
@@ -226,7 +238,8 @@ abstract class Document extends Controls_Stack {
 	 * @since 2.0.0
 	 * @access public
 	 */
-	public function get_unique_name() {
+	public function get_unique_name()
+	{
 		return static::get_type() . '-' . $this->post->ID;
 	}
 
@@ -234,8 +247,9 @@ abstract class Document extends Controls_Stack {
 	 * @since 2.3.0
 	 * @access public
 	 */
-	public function get_post_type_title() {
-		$post_type_object = get_post_type_object( $this->post->post_type );
+	public function get_post_type_title()
+	{
+		$post_type_object = get_post_type_object($this->post->post_type);
 
 		return $post_type_object->labels->singular_name;
 	}
@@ -244,13 +258,14 @@ abstract class Document extends Controls_Stack {
 	 * @since 2.0.0
 	 * @access public
 	 */
-	public function get_main_id() {
-		if ( ! $this->main_id ) {
+	public function get_main_id()
+	{
+		if (!$this->main_id) {
 			$post_id = $this->post->ID;
 
-			$parent_post_id = wp_is_post_revision( $post_id );
+			$parent_post_id = wp_is_post_revision($post_id);
 
-			if ( $parent_post_id ) {
+			if ($parent_post_id) {
 				$post_id = $parent_post_id;
 			}
 
@@ -270,15 +285,16 @@ abstract class Document extends Controls_Stack {
 	 *
 	 * @return string
 	 */
-	public function render_element( $data ) {
+	public function render_element($data)
+	{
 		// Start buffering
 		ob_start();
 
 		/** @var Widget_Base $widget */
-		$widget = Plugin::$instance->elements_manager->create_element_instance( $data );
+		$widget = Plugin::$instance->elements_manager->create_element_instance($data);
 
-		if ( ! $widget ) {
-			throw new \Exception( 'Widget not found.' );
+		if (!$widget) {
+			throw new \Exception('Widget not found.');
 		}
 
 		$widget->render_content();
@@ -292,11 +308,13 @@ abstract class Document extends Controls_Stack {
 	 * @since 2.0.0
 	 * @access public
 	 */
-	public function get_main_post() {
-		return get_post( $this->get_main_id() );
+	public function get_main_post()
+	{
+		return get_post($this->get_main_id());
 	}
 
-	public function get_container_attributes() {
+	public function get_container_attributes()
+	{
 		$id = $this->get_main_id();
 
 		$attributes = [
@@ -305,18 +323,18 @@ abstract class Document extends Controls_Stack {
 			'class' => 'elementor elementor-' . $id,
 		];
 
-		$version_meta = $this->get_main_meta( '_elementor_version' );
+		$version_meta = $this->get_main_meta('_elementor_version');
 
-		if ( version_compare( $version_meta, '2.5.0', '<' ) ) {
+		if (version_compare($version_meta, '2.5.0', '<')) {
 			$attributes['class'] .= ' elementor-bc-flex-widget';
 		}
 
-		if ( Plugin::$instance->preview->is_preview() ) {
+		if (Plugin::$instance->preview->is_preview()) {
 			$attributes['data-elementor-title'] = static::get_title();
 		} else {
 			$elementor_settings = $this->get_frontend_settings();
-			if ( ! empty( $elementor_settings ) ) {
-				$attributes['data-elementor-settings'] = wp_json_encode( $elementor_settings );
+			if (!empty($elementor_settings)) {
+				$attributes['data-elementor-settings'] = wp_json_encode($elementor_settings);
 			}
 		}
 
@@ -327,22 +345,23 @@ abstract class Document extends Controls_Stack {
 	 * @since 2.0.0
 	 * @access public
 	 */
-	public function get_wp_preview_url() {
+	public function get_wp_preview_url()
+	{
 		$main_post_id = $this->get_main_id();
 		$document = $this;
 
 		// Ajax request from editor.
 		// PHPCS - only reading the value from $_POST['initial_document_id'].
-		if ( ! empty( $_POST['initial_document_id'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Missing
+		if (!empty($_POST['initial_document_id'])) { // phpcs:ignore WordPress.Security.NonceVerification.Missing
 			// PHPCS - only reading the value from $_POST['initial_document_id'].
-			$document = Plugin::$instance->documents->get( $_POST['initial_document_id'] ); // phpcs:ignore WordPress.Security.NonceVerification.Missing
+			$document = Plugin::$instance->documents->get($_POST['initial_document_id']); // phpcs:ignore WordPress.Security.NonceVerification.Missing
 		}
 
 		$url = get_preview_post_link(
 			$document->get_main_id(),
 			[
 				'preview_id' => $main_post_id,
-				'preview_nonce' => wp_create_nonce( 'post_preview_' . $main_post_id ),
+				'preview_nonce' => wp_create_nonce('post_preview_' . $main_post_id),
 			]
 		);
 
@@ -356,7 +375,7 @@ abstract class Document extends Controls_Stack {
 		 * @param string   $url  WordPress preview URL.
 		 * @param Document $this The document instance.
 		 */
-		$url = apply_filters( 'elementor/document/urls/wp_preview', $url, $this );
+		$url = apply_filters('elementor/document/urls/wp_preview', $url, $this);
 
 		return $url;
 	}
@@ -365,8 +384,9 @@ abstract class Document extends Controls_Stack {
 	 * @since 2.0.0
 	 * @access public
 	 */
-	public function get_exit_to_dashboard_url() {
-		$url = get_edit_post_link( $this->get_main_id(), 'raw' );
+	public function get_exit_to_dashboard_url()
+	{
+		$url = get_edit_post_link($this->get_main_id(), 'raw');
 
 		/**
 		 * Document "exit to dashboard" URL.
@@ -378,7 +398,7 @@ abstract class Document extends Controls_Stack {
 		 * @param string   $url  The exit URL
 		 * @param Document $this The document instance.
 		 */
-		$url = apply_filters( 'elementor/document/urls/exit_to_dashboard', $url, $this );
+		$url = apply_filters('elementor/document/urls/exit_to_dashboard', $url, $this);
 
 		return $url;
 	}
@@ -395,11 +415,12 @@ abstract class Document extends Controls_Stack {
 	 * @return bool|Document
 	 */
 
-	public function get_newer_autosave() {
+	public function get_newer_autosave()
+	{
 		$autosave = $this->get_autosave();
 
 		// Detect if there exists an autosave newer than the post.
-		if ( $autosave && mysql2date( 'U', $autosave->get_post()->post_modified_gmt, false ) > mysql2date( 'U', $this->post->post_modified_gmt, false ) ) {
+		if ($autosave && mysql2date('U', $autosave->get_post()->post_modified_gmt, false) > mysql2date('U', $this->post->post_modified_gmt, false)) {
 			return $autosave;
 		}
 
@@ -410,8 +431,9 @@ abstract class Document extends Controls_Stack {
 	 * @since 2.0.0
 	 * @access public
 	 */
-	public function is_autosave() {
-		return wp_is_post_autosave( $this->post->ID );
+	public function is_autosave()
+	{
+		return wp_is_post_autosave($this->post->ID);
 	}
 
 	/**
@@ -419,7 +441,8 @@ abstract class Document extends Controls_Stack {
 	 *
 	 * @return bool
 	 */
-	public function is_revision() {
+	public function is_revision()
+	{
 		return 'revision' === $this->post->post_type;
 	}
 
@@ -428,7 +451,8 @@ abstract class Document extends Controls_Stack {
 	 *
 	 * @return bool
 	 */
-	public function is_trash() {
+	public function is_trash()
+	{
 		return 'trash' === $this->post->post_status;
 	}
 
@@ -441,29 +465,30 @@ abstract class Document extends Controls_Stack {
 	 *
 	 * @return bool|Document
 	 */
-	public function get_autosave( $user_id = 0, $create = false ) {
-		if ( ! $user_id ) {
+	public function get_autosave($user_id = 0, $create = false)
+	{
+		if (!$user_id) {
 			$user_id = get_current_user_id();
 		}
 
-		$autosave_id = $this->get_autosave_id( $user_id );
+		$autosave_id = $this->get_autosave_id($user_id);
 
-		if ( $autosave_id ) {
-			$document = Plugin::$instance->documents->get( $autosave_id );
-		} elseif ( $create ) {
-			$autosave_id = wp_create_post_autosave( [
+		if ($autosave_id) {
+			$document = Plugin::$instance->documents->get($autosave_id);
+		} elseif ($create) {
+			$autosave_id = wp_create_post_autosave([
 				'post_ID' => $this->post->ID,
 				'post_type' => $this->post->post_type,
 				'post_title' => $this->post->post_title,
 				'post_excerpt' => $this->post->post_excerpt,
 				// Hack to cause $autosave_is_different=true in `wp_create_post_autosave`.
 				'post_content' => '<!-- Created With Elementor -->',
-				'post_modified' => current_time( 'mysql' ),
-			] );
+				'post_modified' => current_time('mysql'),
+			]);
 
-			Plugin::$instance->db->copy_elementor_meta( $this->post->ID, $autosave_id );
+			Plugin::$instance->db->copy_elementor_meta($this->post->ID, $autosave_id);
 
-			$document = Plugin::$instance->documents->get( $autosave_id );
+			$document = Plugin::$instance->documents->get($autosave_id);
 			$document->save_template_type();
 		} else {
 			$document = false;
@@ -485,12 +510,13 @@ abstract class Document extends Controls_Stack {
 	 *
 	 * @return array An updated array of row action links.
 	 */
-	public function filter_admin_row_actions( $actions ) {
-		if ( $this->is_built_with_elementor() && $this->is_editable_by_current_user() ) {
+	public function filter_admin_row_actions($actions)
+	{
+		if ($this->is_built_with_elementor() && $this->is_editable_by_current_user()) {
 			$actions['edit_with_elementor'] = sprintf(
 				'<a href="%1$s">%2$s</a>',
 				$this->get_edit_url(),
-				__( 'Edit with Elementor', 'elementor' )
+				__('Edit with Elementor', 'elementor')
 			);
 		}
 
@@ -501,36 +527,38 @@ abstract class Document extends Controls_Stack {
 	 * @since 2.0.0
 	 * @access public
 	 */
-	public function is_editable_by_current_user() {
-		$edit_capability = static::get_property( 'edit_capability' );
-		if ( $edit_capability && ! current_user_can( $edit_capability ) ) {
+	public function is_editable_by_current_user()
+	{
+		$edit_capability = static::get_property('edit_capability');
+		if ($edit_capability && !current_user_can($edit_capability)) {
 			return false;
 		}
 
-		return self::get_property( 'is_editable' ) && User::is_current_user_can_edit( $this->get_main_id() );
+		return self::get_property('is_editable') && User::is_current_user_can_edit($this->get_main_id());
 	}
 
 	/**
 	 * @since 2.9.0
 	 * @access protected
 	 */
-	protected function get_initial_config() {
+	protected function get_initial_config()
+	{
 		// Get document data *after* the scripts hook - so plugins can run compatibility before get data, but *before* enqueue the editor script - so elements can enqueue their own scripts that depended in editor script.
 
-		$locked_user = Plugin::$instance->editor->get_locked_user( $this->get_main_id() );
+		$locked_user = Plugin::$instance->editor->get_locked_user($this->get_main_id());
 
-		if ( $locked_user ) {
+		if ($locked_user) {
 			$locked_user = $locked_user->display_name;
 		}
 
-		$post_type_object = get_post_type_object( $this->get_main_post()->post_type );
+		$post_type_object = get_post_type_object($this->get_main_post()->post_type);
 
 		$settings = SettingsManager::get_settings_managers_config();
 
 		$config = [
 			'id' => $this->get_main_id(),
 			'type' => $this->get_name(),
-			'version' => $this->get_main_meta( '_elementor_version' ),
+			'version' => $this->get_main_meta('_elementor_version'),
 			'settings' => $settings['page'],
 			'remoteLibrary' => $this->get_remote_library_config(),
 			'last_edited' => $this->get_last_edited(),
@@ -538,7 +566,7 @@ abstract class Document extends Controls_Stack {
 			'container' => 'body',
 			'post_type_title' => $this->get_post_type_title(),
 			'user' => [
-				'can_publish' => current_user_can( $post_type_object->cap->publish_posts ),
+				'can_publish' => current_user_can($post_type_object->cap->publish_posts),
 
 				// Deprecated config since 2.9.0.
 				'locked' => $locked_user,
@@ -552,19 +580,19 @@ abstract class Document extends Controls_Stack {
 			],
 		];
 
-		do_action( 'elementor/document/before_get_config', $this );
+		do_action('elementor/document/before_get_config', $this);
 
-		if ( static::get_property( 'has_elements' ) ) {
+		if (static::get_property('has_elements')) {
 			$container_config = [];
 			$experiments_manager = Plugin::$instance->experiments;
 
-			if ( $experiments_manager->is_feature_active( 'container' ) ) {
+			if ($experiments_manager->is_feature_active('container')) {
 				$container_config = [
-					'container' => Plugin::$instance->elements_manager->get_element_types( 'container' )->get_config(),
+					'container' => Plugin::$instance->elements_manager->get_element_types('container')->get_config(),
 				];
 			}
 
-			$config['elements'] = $this->get_elements_raw_data( null, true );
+			$config['elements'] = $this->get_elements_raw_data(null, true);
 			$config['widgets'] = $container_config + Plugin::$instance->widgets_manager->get_widget_types_config();
 		}
 
@@ -582,10 +610,10 @@ abstract class Document extends Controls_Stack {
 		 * @param array $additional_config The additional document configuration.
 		 * @param int   $post_id           The post ID of the document.
 		 */
-		$additional_config = apply_filters( 'elementor/document/config', $additional_config, $this->get_main_id() );
+		$additional_config = apply_filters('elementor/document/config', $additional_config, $this->get_main_id());
 
-		if ( ! empty( $additional_config ) ) {
-			$config = array_replace_recursive( $config, $additional_config );
+		if (!empty($additional_config)) {
+			$config = array_replace_recursive($config, $additional_config);
 		}
 
 		return $config;
@@ -595,7 +623,8 @@ abstract class Document extends Controls_Stack {
 	 * @since 3.1.0
 	 * @access protected
 	 */
-	protected function register_controls() {
+	protected function register_controls()
+	{
 		$this->register_document_controls();
 
 		/**
@@ -609,7 +638,7 @@ abstract class Document extends Controls_Stack {
 		 *
 		 * @param Document $this The document instance.
 		 */
-		do_action( 'elementor/documents/register_controls', $this );
+		do_action('elementor/documents/register_controls', $this);
 	}
 
 	/**
@@ -620,7 +649,8 @@ abstract class Document extends Controls_Stack {
 	 *
 	 * @return bool
 	 */
-	public function save( $data ) {
+	public function save($data)
+	{
 		/**
 		 * Document save data.
 		 *
@@ -634,15 +664,15 @@ abstract class Document extends Controls_Stack {
 		 * @param array                         $data The document data.
 		 * @param \Elementor\Core\Base\Document $this The document instance.
 		 */
-		$data = apply_filters( 'elementor/document/save/data', $data, $this );
+		$data = apply_filters('elementor/document/save/data', $data, $this);
 
 		$this->add_handle_revisions_changed_filter();
 
-		if ( ! $this->is_editable_by_current_user() ) {
+		if (!$this->is_editable_by_current_user()) {
 			return false;
 		}
 
-		$this->set_is_saving( true );
+		$this->set_is_saving(true);
 
 		/**
 		 * Before document save.
@@ -654,27 +684,27 @@ abstract class Document extends Controls_Stack {
 		 * @param \Elementor\Core\Base\Document $this The current document.
 		 * @param $data.
 		 */
-		do_action( 'elementor/document/before_save', $this, $data );
+		do_action('elementor/document/before_save', $this, $data);
 
-		if ( ! current_user_can( 'unfiltered_html' ) ) {
-			$data = wp_kses_post_deep( $data );
+		if (!current_user_can('unfiltered_html')) {
+			$data = wp_kses_post_deep($data);
 		}
 
-		if ( ! empty( $data['settings'] ) ) {
-			if ( isset( $data['settings']['post_status'] ) && self::STATUS_AUTOSAVE === $data['settings']['post_status'] ) {
-				if ( ! defined( 'DOING_AUTOSAVE' ) ) {
-					define( 'DOING_AUTOSAVE', true );
+		if (!empty($data['settings'])) {
+			if (isset($data['settings']['post_status']) && self::STATUS_AUTOSAVE === $data['settings']['post_status']) {
+				if (!defined('DOING_AUTOSAVE')) {
+					define('DOING_AUTOSAVE', true);
 				}
 			}
 
-			$this->save_settings( $data['settings'] );
+			$this->save_settings($data['settings']);
 
 			$this->refresh_post();
 		}
 
 		// Don't check is_empty, because an empty array should be saved.
-		if ( isset( $data['elements'] ) && is_array( $data['elements'] ) ) {
-			$this->save_elements( $data['elements'] );
+		if (isset($data['elements']) && is_array($data['elements'])) {
+			$this->save_elements($data['elements']);
 		}
 
 		$this->save_template_type();
@@ -682,7 +712,7 @@ abstract class Document extends Controls_Stack {
 		$this->save_version();
 
 		// Remove Post CSS
-		$post_css = Post_CSS::create( $this->post->ID );
+		$post_css = Post_CSS::create($this->post->ID);
 
 		$post_css->delete();
 
@@ -696,17 +726,18 @@ abstract class Document extends Controls_Stack {
 		 * @param \Elementor\Core\Base\Document $this The current document.
 		 * @param $data.
 		 */
-		do_action( 'elementor/document/after_save', $this, $data );
+		do_action('elementor/document/after_save', $this, $data);
 
-		$this->set_is_saving( false );
+		$this->set_is_saving(false);
 
 		$this->remove_handle_revisions_changed_filter();
 
 		return true;
 	}
 
-	public function refresh_post() {
-		$this->post = get_post( $this->post->ID );
+	public function refresh_post()
+	{
+		$this->post = get_post($this->post->ID);
 	}
 
 	/**
@@ -714,15 +745,16 @@ abstract class Document extends Controls_Stack {
 	 *
 	 * @return static
 	 */
-	public function update_settings( array $new_settings ) {
-		$document_settings = $this->get_meta( PageManager::META_KEY );
+	public function update_settings(array $new_settings)
+	{
+		$document_settings = $this->get_meta(PageManager::META_KEY);
 
-		if ( ! $document_settings ) {
+		if (!$document_settings) {
 			$document_settings = [];
 		}
 
 		$this->save_settings(
-			array_replace_recursive( $document_settings, $new_settings )
+			array_replace_recursive($document_settings, $new_settings)
 		);
 
 		return $this;
@@ -738,8 +770,9 @@ abstract class Document extends Controls_Stack {
 	 *
 	 * @return bool Whether the post was built with Elementor.
 	 */
-	public function is_built_with_elementor() {
-		return ! ! $this->get_meta( self::BUILT_WITH_ELEMENTOR_META_KEY );
+	public function is_built_with_elementor()
+	{
+		return !!$this->get_meta(self::BUILT_WITH_ELEMENTOR_META_KEY);
 	}
 
 	/**
@@ -749,12 +782,13 @@ abstract class Document extends Controls_Stack {
 	 *
 	 * @return $this
 	 */
-	public function set_is_built_with_elementor( $is_built_with_elementor ) {
-		if ( $is_built_with_elementor ) {
+	public function set_is_built_with_elementor($is_built_with_elementor)
+	{
+		if ($is_built_with_elementor) {
 			// Use the string `builder` and not a boolean for rollback compatibility
-			$this->update_meta( self::BUILT_WITH_ELEMENTOR_META_KEY, 'builder' );
+			$this->update_meta(self::BUILT_WITH_ELEMENTOR_META_KEY, 'builder');
 		} else {
-			$this->delete_meta( self::BUILT_WITH_ELEMENTOR_META_KEY );
+			$this->delete_meta(self::BUILT_WITH_ELEMENTOR_META_KEY);
 		}
 
 		return $this;
@@ -767,13 +801,14 @@ abstract class Document extends Controls_Stack {
 	 *
 	 * @return mixed
 	 */
-	public function get_edit_url() {
+	public function get_edit_url()
+	{
 		$url = add_query_arg(
 			[
 				'post' => $this->get_main_id(),
 				'action' => 'elementor',
 			],
-			admin_url( 'post.php' )
+			admin_url('post.php')
 		);
 
 		/**
@@ -786,7 +821,7 @@ abstract class Document extends Controls_Stack {
 		 * @param string   $url  The edit url.
 		 * @param Document $this The document instance.
 		 */
-		$url = apply_filters( 'elementor/document/urls/edit', $url, $this );
+		$url = apply_filters('elementor/document/urls/edit', $url, $this);
 
 		return $url;
 	}
@@ -795,22 +830,23 @@ abstract class Document extends Controls_Stack {
 	 * @since 2.0.0
 	 * @access public
 	 */
-	public function get_preview_url() {
+	public function get_preview_url()
+	{
 		/**
 		 * Use a static var - to avoid change the `ver` parameter on every call.
 		 */
 		static $url;
 
-		if ( empty( $url ) ) {
+		if (empty($url)) {
 
-			add_filter( 'pre_option_permalink_structure', '__return_empty_string' );
+			add_filter('pre_option_permalink_structure', '__return_empty_string');
 
-			$url = set_url_scheme( add_query_arg( [
+			$url = set_url_scheme(add_query_arg([
 				'elementor-preview' => $this->get_main_id(),
 				'ver' => time(),
-			], $this->get_permalink() ) );
+			], $this->get_permalink()));
 
-			remove_filter( 'pre_option_permalink_structure', '__return_empty_string' );
+			remove_filter('pre_option_permalink_structure', '__return_empty_string');
 
 			/**
 			 * Document preview URL.
@@ -822,7 +858,7 @@ abstract class Document extends Controls_Stack {
 			 * @param string   $url  The preview URL.
 			 * @param Document $this The document instance.
 			 */
-			$url = apply_filters( 'elementor/document/urls/preview', $url, $this );
+			$url = apply_filters('elementor/document/urls/preview', $url, $this);
 		}
 
 		return $url;
@@ -836,14 +872,15 @@ abstract class Document extends Controls_Stack {
 	 *
 	 * @return array
 	 */
-	public function get_json_meta( $key ) {
-		$meta = get_post_meta( $this->post->ID, $key, true );
+	public function get_json_meta($key)
+	{
+		$meta = get_post_meta($this->post->ID, $key, true);
 
-		if ( is_string( $meta ) && ! empty( $meta ) ) {
-			$meta = json_decode( $meta, true );
+		if (is_string($meta) && !empty($meta)) {
+			$meta = json_decode($meta, true);
 		}
 
-		if ( empty( $meta ) ) {
+		if (empty($meta)) {
 			$meta = [];
 		}
 
@@ -859,35 +896,36 @@ abstract class Document extends Controls_Stack {
 	 *
 	 * @return array
 	 */
-	public function get_elements_raw_data( $data = null, $with_html_content = false ) {
-		if ( ! static::get_property( 'has_elements' ) ) {
+	public function get_elements_raw_data($data = null, $with_html_content = false)
+	{
+		if (!static::get_property('has_elements')) {
 			return [];
 		}
 
-		if ( is_null( $data ) ) {
+		if (is_null($data)) {
 			$data = $this->get_elements_data();
 		}
 
 		// Change the current documents, so widgets can use `documents->get_current` and other post data
-		Plugin::$instance->documents->switch_to_document( $this );
+		Plugin::$instance->documents->switch_to_document($this);
 
 		$editor_data = [];
 
-		foreach ( $data as $element_data ) {
-			if ( ! is_array( $element_data ) ) {
-				throw new \Exception( 'Invalid data: ' . wp_json_encode( [
+		foreach ($data as $element_data) {
+			if (!is_array($element_data)) {
+				throw new \Exception('Invalid data: ' . wp_json_encode([
 					'data' => $data,
 					'element' => $element_data,
-				] ) );
+				]));
 			}
 
-			$element = Plugin::$instance->elements_manager->create_element_instance( $element_data );
+			$element = Plugin::$instance->elements_manager->create_element_instance($element_data);
 
-			if ( ! $element ) {
+			if (!$element) {
 				continue;
 			}
 
-			$editor_data[] = $element->get_raw_data( $with_html_content );
+			$editor_data[] = $element->get_raw_data($with_html_content);
 		} // End foreach().
 
 		Plugin::$instance->documents->restore_document();
@@ -903,30 +941,31 @@ abstract class Document extends Controls_Stack {
 	 *
 	 * @return array
 	 */
-	public function get_elements_data( $status = self::STATUS_PUBLISH ) {
-		$elements = $this->get_json_meta( '_elementor_data' );
+	public function get_elements_data($status = self::STATUS_PUBLISH)
+	{
+		$elements = $this->get_json_meta('_elementor_data');
 
-		if ( self::STATUS_DRAFT === $status ) {
+		if (self::STATUS_DRAFT === $status) {
 			$autosave = $this->get_newer_autosave();
 
-			if ( is_object( $autosave ) ) {
+			if (is_object($autosave)) {
 				$autosave_elements = Plugin::$instance->documents
-					->get( $autosave->get_post()->ID )
-					->get_json_meta( '_elementor_data' );
+					->get($autosave->get_post()->ID)
+					->get_json_meta('_elementor_data');
 			}
 		}
 
-		if ( Plugin::$instance->editor->is_edit_mode() ) {
-			if ( empty( $elements ) && empty( $autosave_elements ) ) {
+		if (Plugin::$instance->editor->is_edit_mode()) {
+			if (empty($elements) && empty($autosave_elements)) {
 				// Convert to Elementor.
 				$elements = $this->convert_to_elementor();
-				if ( $this->is_autosave() ) {
-					Plugin::$instance->db->copy_elementor_meta( $this->post->post_parent, $this->post->ID );
+				if ($this->is_autosave()) {
+					Plugin::$instance->db->copy_elementor_meta($this->post->post_parent, $this->post->ID);
 				}
 			}
 		}
 
-		if ( ! empty( $autosave_elements ) ) {
+		if (!empty($autosave_elements)) {
 			$elements = $autosave_elements;
 		}
 
@@ -938,27 +977,29 @@ abstract class Document extends Controls_Stack {
 	 *
 	 * @return array
 	 */
-	public function get_db_document_settings() {
-		return $this->get_meta( static::PAGE_META_KEY );
+	public function get_db_document_settings()
+	{
+		return $this->get_meta(static::PAGE_META_KEY);
 	}
 
 	/**
 	 * @since 2.3.0
 	 * @access public
 	 */
-	public function convert_to_elementor() {
-		$this->save( [] );
+	public function convert_to_elementor()
+	{
+		$this->save([]);
 
-		if ( empty( $this->post->post_content ) ) {
+		if (empty($this->post->post_content)) {
 			return [];
 		}
 
 		// Check if it's only a shortcode.
-		preg_match_all( '/' . get_shortcode_regex() . '/', $this->post->post_content, $matches, PREG_SET_ORDER );
-		if ( ! empty( $matches ) ) {
-			foreach ( $matches as $shortcode ) {
-				if ( trim( $this->post->post_content ) === $shortcode[0] ) {
-					$widget_type = Plugin::$instance->widgets_manager->get_widget_types( 'shortcode' );
+		preg_match_all('/' . get_shortcode_regex() . '/', $this->post->post_content, $matches, PREG_SET_ORDER);
+		if (!empty($matches)) {
+			foreach ($matches as $shortcode) {
+				if (trim($this->post->post_content) === $shortcode[0]) {
+					$widget_type = Plugin::$instance->widgets_manager->get_widget_types('shortcode');
 					$settings = [
 						'shortcode' => $this->post->post_content,
 					];
@@ -967,8 +1008,8 @@ abstract class Document extends Controls_Stack {
 			}
 		}
 
-		if ( empty( $widget_type ) ) {
-			$widget_type = Plugin::$instance->widgets_manager->get_widget_types( 'text-editor' );
+		if (empty($widget_type)) {
+			$widget_type = Plugin::$instance->widgets_manager->get_widget_types('text-editor');
 			$settings = [
 				'editor' => $this->post->post_content,
 			];
@@ -1001,32 +1042,34 @@ abstract class Document extends Controls_Stack {
 	 * @since 2.1.3
 	 * @access public
 	 */
-	public function print_elements_with_wrapper( $elements_data = null ) {
-		if ( ! $elements_data ) {
+	public function print_elements_with_wrapper($elements_data = null)
+	{
+		if (!$elements_data) {
 			$elements_data = $this->get_elements_data();
 		}
 
-		$is_dom_optimization_active = Plugin::$instance->experiments->is_feature_active( 'e_dom_optimization' );
-		?>
-		<div <?php Utils::print_html_attributes( $this->get_container_attributes() ); ?>>
-			<?php if ( ! $is_dom_optimization_active ) : ?>
-			<div class="elementor-inner">
-				<div class="elementor-section-wrap">
-			<?php endif; ?>
-				<?php $this->print_elements( $elements_data ); ?>
-			<?php if ( ! $is_dom_optimization_active ) : ?>
+		$is_dom_optimization_active = Plugin::$instance->experiments->is_feature_active('e_dom_optimization');
+?>
+		<div <?php Utils::print_html_attributes($this->get_container_attributes()); ?>>
+			<?php if (!$is_dom_optimization_active) : ?>
+				<div class="elementor-inner">
+					<div class="elementor-section-wrap">
+					<?php endif; ?>
+					<?php $this->print_elements($elements_data); ?>
+					<?php if (!$is_dom_optimization_active) : ?>
+					</div>
 				</div>
-			</div>
 			<?php endif; ?>
 		</div>
-		<?php
+<?php
 	}
 
 	/**
 	 * @since 2.0.0
 	 * @access public
 	 */
-	public function get_css_wrapper_selector() {
+	public function get_css_wrapper_selector()
+	{
 		return '';
 	}
 
@@ -1034,10 +1077,11 @@ abstract class Document extends Controls_Stack {
 	 * @since 2.0.0
 	 * @access public
 	 */
-	public function get_panel_page_settings() {
+	public function get_panel_page_settings()
+	{
 		return [
 			/* translators: %s: Document title. */
-			'title' => sprintf( esc_html__( '%s Settings', 'elementor' ), static::get_title() ),
+			'title' => sprintf(esc_html__('%s Settings', 'elementor'), static::get_title()),
 		];
 	}
 
@@ -1045,7 +1089,8 @@ abstract class Document extends Controls_Stack {
 	 * @since 2.0.0
 	 * @access public
 	 */
-	public function get_post() {
+	public function get_post()
+	{
 		return $this->post;
 	}
 
@@ -1053,30 +1098,33 @@ abstract class Document extends Controls_Stack {
 	 * @since 2.0.0
 	 * @access public
 	 */
-	public function get_permalink() {
-		return get_permalink( $this->get_main_id() );
+	public function get_permalink()
+	{
+		return get_permalink($this->get_main_id());
 	}
 
 	/**
 	 * @since 2.0.8
 	 * @access public
 	 */
-	public function get_content( $with_css = false ) {
-		return Plugin::$instance->frontend->get_builder_content( $this->post->ID, $with_css );
+	public function get_content($with_css = false)
+	{
+		return Plugin::$instance->frontend->get_builder_content($this->post->ID, $with_css);
 	}
 
 	/**
 	 * @since 2.0.0
 	 * @access public
 	 */
-	public function delete() {
-		if ( 'revision' === $this->post->post_type ) {
-			$deleted = wp_delete_post_revision( $this->post );
+	public function delete()
+	{
+		if ('revision' === $this->post->post_type) {
+			$deleted = wp_delete_post_revision($this->post);
 		} else {
-			$deleted = wp_delete_post( $this->post->ID );
+			$deleted = wp_delete_post($this->post->ID);
 		}
 
-		return $deleted && ! is_wp_error( $deleted );
+		return $deleted && !is_wp_error($deleted);
 	}
 
 	/**
@@ -1087,14 +1135,15 @@ abstract class Document extends Controls_Stack {
 	 *
 	 * @param array $map_old_new_post_ids
 	 */
-	public static function on_import_replace_dynamic_content( $config, $map_old_new_post_ids ) {
-		foreach ( $config as &$element_config ) {
-			$element_instance = Plugin::$instance->elements_manager->create_element_instance( $element_config );
+	public static function on_import_replace_dynamic_content($config, $map_old_new_post_ids)
+	{
+		foreach ($config as &$element_config) {
+			$element_instance = Plugin::$instance->elements_manager->create_element_instance($element_config);
 
-			if ( $element_instance ) {
-				$element_config = $element_instance::on_import_replace_dynamic_content( $element_config, $map_old_new_post_ids );
+			if ($element_instance) {
+				$element_config = $element_instance::on_import_replace_dynamic_content($element_config, $map_old_new_post_ids);
 
-				$element_config['elements'] = static::on_import_replace_dynamic_content( $element_config['elements'], $map_old_new_post_ids );
+				$element_config['elements'] = static::on_import_replace_dynamic_content($element_config['elements'], $map_old_new_post_ids);
 			}
 		}
 
@@ -1111,14 +1160,15 @@ abstract class Document extends Controls_Stack {
 	 *
 	 * @param array $elements
 	 */
-	protected function save_elements( $elements ) {
-		$editor_data = $this->get_elements_raw_data( $elements );
+	protected function save_elements($elements)
+	{
+		$editor_data = $this->get_elements_raw_data($elements);
 
 		// We need the `wp_slash` in order to avoid the unslashing during the `update_post_meta`
-		$json_value = wp_slash( wp_json_encode( $editor_data ) );
+		$json_value = wp_slash(wp_json_encode($editor_data));
 
 		// Don't use `update_post_meta` that can't handle `revision` post type
-		$is_meta_updated = update_metadata( 'post', $this->post->ID, '_elementor_data', $json_value );
+		$is_meta_updated = update_metadata('post', $this->post->ID, '_elementor_data', $json_value);
 
 		/**
 		 * Before saving data.
@@ -1130,14 +1180,14 @@ abstract class Document extends Controls_Stack {
 		 * @param string   $status          Post status.
 		 * @param int|bool $is_meta_updated Meta ID if the key didn't exist, true on successful update, false on failure.
 		 */
-		do_action( 'elementor/db/before_save', $this->post->post_status, $is_meta_updated );
+		do_action('elementor/db/before_save', $this->post->post_status, $is_meta_updated);
 
-		Plugin::$instance->db->save_plain_text( $this->post->ID );
+		Plugin::$instance->db->save_plain_text($this->post->ID);
 
 		$elements_iteration_actions = $this->get_elements_iteration_actions();
 
-		if ( $elements_iteration_actions ) {
-			$this->iterate_elements( $elements, $elements_iteration_actions, 'save' );
+		if ($elements_iteration_actions) {
+			$this->iterate_elements($elements, $elements_iteration_actions, 'save');
 		}
 
 		/**
@@ -1150,7 +1200,7 @@ abstract class Document extends Controls_Stack {
 		 * @param int   $post_id     The ID of the post.
 		 * @param array $editor_data Sanitize posted data.
 		 */
-		do_action( 'elementor/editor/after_save', $this->post->ID, $editor_data );
+		do_action('elementor/editor/after_save', $this->post->ID, $editor_data);
 	}
 
 	/**
@@ -1161,23 +1211,25 @@ abstract class Document extends Controls_Stack {
 	 *
 	 * @return bool|int
 	 */
-	public function get_autosave_id( $user_id = 0 ) {
-		if ( ! $user_id ) {
+	public function get_autosave_id($user_id = 0)
+	{
+		if (!$user_id) {
 			$user_id = get_current_user_id();
 		}
 
-		$autosave = Utils::get_post_autosave( $this->post->ID, $user_id );
-		if ( $autosave ) {
+		$autosave = Utils::get_post_autosave($this->post->ID, $user_id);
+		if ($autosave) {
 			return $autosave->ID;
 		}
 
 		return false;
 	}
 
-	public function save_version() {
-		if ( ! defined( 'IS_ELEMENTOR_UPGRADE' ) ) {
+	public function save_version()
+	{
+		if (!defined('IS_ELEMENTOR_UPGRADE')) {
 			// Save per revision.
-			$this->update_meta( '_elementor_version', ELEMENTOR_VERSION );
+			$this->update_meta('_elementor_version', ELEMENTOR_VERSION);
 
 			/**
 			 * Document version save.
@@ -1190,7 +1242,7 @@ abstract class Document extends Controls_Stack {
 			 * @param \Elementor\Core\Base\Document $this The current document.
 			 *
 			 */
-			do_action( 'elementor/document/save_version', $this );
+			do_action('elementor/document/save_version', $this);
 		}
 	}
 
@@ -1198,16 +1250,18 @@ abstract class Document extends Controls_Stack {
 	 * @since 2.3.0
 	 * @access public
 	 */
-	public function save_template_type() {
-		return $this->update_main_meta( self::TYPE_META_KEY, $this->get_name() );
+	public function save_template_type()
+	{
+		return $this->update_main_meta(self::TYPE_META_KEY, $this->get_name());
 	}
 
 	/**
 	 * @since 2.3.0
 	 * @access public
 	 */
-	public function get_template_type() {
-		return $this->get_main_meta( self::TYPE_META_KEY );
+	public function get_template_type()
+	{
+		return $this->get_main_meta(self::TYPE_META_KEY);
 	}
 
 	/**
@@ -1218,8 +1272,9 @@ abstract class Document extends Controls_Stack {
 	 *
 	 * @return mixed
 	 */
-	public function get_main_meta( $key ) {
-		return get_post_meta( $this->get_main_id(), $key, true );
+	public function get_main_meta($key)
+	{
+		return get_post_meta($this->get_main_id(), $key, true);
 	}
 
 	/**
@@ -1231,8 +1286,9 @@ abstract class Document extends Controls_Stack {
 	 *
 	 * @return bool|int
 	 */
-	public function update_main_meta( $key, $value ) {
-		return update_post_meta( $this->get_main_id(), $key, $value );
+	public function update_main_meta($key, $value)
+	{
+		return update_post_meta($this->get_main_id(), $key, $value);
 	}
 
 	/**
@@ -1244,8 +1300,9 @@ abstract class Document extends Controls_Stack {
 	 *
 	 * @return bool
 	 */
-	public function delete_main_meta( $key, $value = '' ) {
-		return delete_post_meta( $this->get_main_id(), $key, $value );
+	public function delete_main_meta($key, $value = '')
+	{
+		return delete_post_meta($this->get_main_id(), $key, $value);
 	}
 
 	/**
@@ -1256,8 +1313,9 @@ abstract class Document extends Controls_Stack {
 	 *
 	 * @return mixed
 	 */
-	public function get_meta( $key ) {
-		return get_post_meta( $this->post->ID, $key, true );
+	public function get_meta($key)
+	{
+		return get_post_meta($this->post->ID, $key, true);
 	}
 
 	/**
@@ -1269,9 +1327,10 @@ abstract class Document extends Controls_Stack {
 	 *
 	 * @return bool|int
 	 */
-	public function update_meta( $key, $value ) {
+	public function update_meta($key, $value)
+	{
 		// Use `update_metadata` in order to work also with revisions.
-		return update_metadata( 'post', $this->post->ID, $key, $value );
+		return update_metadata('post', $this->post->ID, $key, $value);
 	}
 
 	/**
@@ -1283,32 +1342,34 @@ abstract class Document extends Controls_Stack {
 	 *
 	 * @return bool
 	 */
-	public function delete_meta( $key, $value = '' ) {
+	public function delete_meta($key, $value = '')
+	{
 		// Use `delete_metadata` in order to work also with revisions.
-		return delete_metadata( 'post', $this->post->ID, $key, $value );
+		return delete_metadata('post', $this->post->ID, $key, $value);
 	}
 
 	/**
 	 * @since 2.0.0
 	 * @access public
 	 */
-	public function get_last_edited() {
+	public function get_last_edited()
+	{
 		$post = $this->post;
 		$autosave_post = $this->get_autosave();
 
-		if ( $autosave_post ) {
+		if ($autosave_post) {
 			$post = $autosave_post->get_post();
 		}
 
-		$date = date_i18n( _x( 'M j, H:i', 'revision date format', 'elementor' ), strtotime( $post->post_modified ) );
-		$display_name = get_the_author_meta( 'display_name', $post->post_author );
+		$date = date_i18n(_x('M j, H:i', 'revision date format', 'elementor'), strtotime($post->post_modified));
+		$display_name = get_the_author_meta('display_name', $post->post_author);
 
-		if ( $autosave_post || 'revision' === $post->post_type ) {
+		if ($autosave_post || 'revision' === $post->post_type) {
 			/* translators: 1: Saving date, 2: Author display name. */
-			$last_edited = sprintf( esc_html__( 'Draft saved on %1$s by %2$s', 'elementor' ), '<time>' . $date . '</time>', $display_name );
+			$last_edited = sprintf(esc_html__('Draft saved on %1$s by %2$s', 'elementor'), '<time>' . $date . '</time>', $display_name);
 		} else {
 			/* translators: 1: Editing date, 2: Author display name. */
-			$last_edited = sprintf( esc_html__( 'Last edited on %1$s by %2$s', 'elementor' ), '<time>' . $date . '</time>', $display_name );
+			$last_edited = sprintf(esc_html__('Last edited on %1$s by %2$s', 'elementor'), '<time>' . $date . '</time>', $display_name);
 		}
 
 		return $last_edited;
@@ -1318,7 +1379,8 @@ abstract class Document extends Controls_Stack {
 	/**
 	 * @return bool
 	 */
-	public function is_saving() {
+	public function is_saving()
+	{
 		return $this->is_saving;
 	}
 
@@ -1327,7 +1389,8 @@ abstract class Document extends Controls_Stack {
 	 *
 	 * @return $this
 	 */
-	public function set_is_saving( $is_saving ) {
+	public function set_is_saving($is_saving)
+	{
 		$this->is_saving = $is_saving;
 
 		return $this;
@@ -1341,32 +1404,33 @@ abstract class Document extends Controls_Stack {
 	 *
 	 * @throws \Exception If the post does not exist.
 	 */
-	public function __construct( array $data = [] ) {
-		if ( $data ) {
-			if ( empty( $data['post_id'] ) ) {
-				$this->post = new \WP_Post( (object) [] );
+	public function __construct(array $data = [])
+	{
+		if ($data) {
+			if (empty($data['post_id'])) {
+				$this->post = new \WP_Post((object) []);
 			} else {
-				$this->post = get_post( $data['post_id'] );
+				$this->post = get_post($data['post_id']);
 
-				if ( ! $this->post ) {
-					throw new \Exception( sprintf( 'Post ID #%s does not exist.', $data['post_id'] ), Exceptions::NOT_FOUND );
+				if (!$this->post) {
+					throw new \Exception(sprintf('Post ID #%s does not exist.', $data['post_id']), Exceptions::NOT_FOUND);
 				}
 			}
 
 			// Each Control_Stack is based on a unique ID.
 			$data['id'] = $data['post_id'];
 
-			if ( ! isset( $data['settings'] ) ) {
+			if (!isset($data['settings'])) {
 				$data['settings'] = [];
 			}
 
-			$saved_settings = get_post_meta( $this->post->ID, '_elementor_page_settings', true );
-			if ( ! empty( $saved_settings ) && is_array( $saved_settings ) ) {
+			$saved_settings = get_post_meta($this->post->ID, '_elementor_page_settings', true);
+			if (!empty($saved_settings) && is_array($saved_settings)) {
 				$data['settings'] += $saved_settings;
 			}
 		}
 
-		parent::__construct( $data );
+		parent::__construct($data);
 	}
 
 	/*
@@ -1379,32 +1443,34 @@ abstract class Document extends Controls_Stack {
 	 *
 	 * @return array The data to export
 	 */
-	public function get_export_data() {
-		$content = Plugin::$instance->db->iterate_data( $this->get_elements_data(), function( $element_data ) {
+	public function get_export_data()
+	{
+		$content = Plugin::$instance->db->iterate_data($this->get_elements_data(), function ($element_data) {
 			$element_data['id'] = Utils::generate_random_string();
 
-			$element = Plugin::$instance->elements_manager->create_element_instance( $element_data );
+			$element = Plugin::$instance->elements_manager->create_element_instance($element_data);
 
 			// If the widget/element isn't exist, like a plugin that creates a widget but deactivated
-			if ( ! $element ) {
+			if (!$element) {
 				return null;
 			}
 
-			return $this->process_element_import_export( $element, 'on_export' );
-		} );
+			return $this->process_element_import_export($element, 'on_export');
+		});
 
 		return [
 			'content' => $content,
-			'settings' => $this->get_data( 'settings' ),
+			'settings' => $this->get_data('settings'),
 			'metadata' => $this->get_export_metadata(),
 		];
 	}
 
-	public function get_export_summary() {
+	public function get_export_summary()
+	{
 		return [
 			'title' => $this->post->post_title,
 			'doc_type' => $this->get_name(),
-			'thumbnail' => get_the_post_thumbnail_url( $this->post ),
+			'thumbnail' => get_the_post_thumbnail_url($this->post),
 		];
 	}
 
@@ -1418,25 +1484,26 @@ abstract class Document extends Controls_Stack {
 	 *
 	 * @return array The data to import
 	 */
-	public function get_import_data( array $data ) {
-		$data['content'] = Plugin::$instance->db->iterate_data( $data['content'], function( $element_data ) {
-			$element = Plugin::$instance->elements_manager->create_element_instance( $element_data );
+	public function get_import_data(array $data)
+	{
+		$data['content'] = Plugin::$instance->db->iterate_data($data['content'], function ($element_data) {
+			$element = Plugin::$instance->elements_manager->create_element_instance($element_data);
 
 			// If the widget/element isn't exist, like a plugin that creates a widget but deactivated
-			if ( ! $element ) {
+			if (!$element) {
 				return null;
 			}
 
-			return $this->process_element_import_export( $element, 'on_import' );
-		} );
+			return $this->process_element_import_export($element, 'on_import');
+		});
 
-		if ( ! empty( $data['settings'] ) ) {
-			$template_model = new Page_Model( [
+		if (!empty($data['settings'])) {
+			$template_model = new Page_Model([
 				'id' => 0,
 				'settings' => $data['settings'],
-			] );
+			]);
 
-			$page_data = $this->process_element_import_export( $template_model, 'on_import' );
+			$page_data = $this->process_element_import_export($template_model, 'on_import');
 
 			$data['settings'] = $page_data['settings'];
 		}
@@ -1454,73 +1521,77 @@ abstract class Document extends Controls_Stack {
 	 *
 	 * @param array $data
 	 */
-	public function import( array $data ) {
-		$data = $this->get_import_data( $data );
+	public function import(array $data)
+	{
+		$data = $this->get_import_data($data);
 
-		$this->save( [
+		$this->save([
 			'elements' => $data['content'],
 			'settings' => $data['settings'],
-		] );
+		]);
 
-		if ( $data['import_settings']['thumbnail'] ) {
-			$attachment = Plugin::$instance->templates_manager->get_import_images_instance()->import( [ 'url' => $data['import_settings']['thumbnail'] ] );
+		if ($data['import_settings']['thumbnail']) {
+			$attachment = Plugin::$instance->templates_manager->get_import_images_instance()->import(['url' => $data['import_settings']['thumbnail']]);
 
-			set_post_thumbnail( $this->get_main_post(), $attachment['id'] );
+			set_post_thumbnail($this->get_main_post(), $attachment['id']);
 		}
 
-		if ( ! empty( $data['metadata'] ) ) {
-			foreach ( $data['metadata'] as $key => $value ) {
-				$this->update_meta( $key, $value );
+		if (!empty($data['metadata'])) {
+			foreach ($data['metadata'] as $key => $value) {
+				$this->update_meta($key, $value);
 			}
 		}
 	}
 
-	private function process_element_import_export( Controls_Stack $element, $method ) {
+	private function process_element_import_export(Controls_Stack $element, $method)
+	{
 		$element_data = $element->get_data();
 
-		if ( method_exists( $element, $method ) ) {
+		if (method_exists($element, $method)) {
 			// TODO: Use the internal element data without parameters.
-			$element_data = $element->{$method}( $element_data );
+			$element_data = $element->{$method}($element_data);
 		}
 
-		foreach ( $element->get_controls() as $control ) {
-			$control_class = Plugin::$instance->controls_manager->get_control( $control['type'] );
+		foreach ($element->get_controls() as $control) {
+			$control_class = Plugin::$instance->controls_manager->get_control($control['type']);
 
 			// If the control isn't exist, like a plugin that creates the control but deactivated.
-			if ( ! $control_class ) {
+			if (!$control_class) {
 				return $element_data;
 			}
 
-			if ( method_exists( $control_class, $method ) ) {
-				$element_data['settings'][ $control['name'] ] = $control_class->{$method}( $element->get_settings( $control['name'] ), $control );
+			if (method_exists($control_class, $method)) {
+				$element_data['settings'][$control['name']] = $control_class->{$method}($element->get_settings($control['name']), $control);
 			}
 
 			// On Export, check if the control has an argument 'export' => false.
-			if ( 'on_export' === $method && isset( $control['export'] ) && false === $control['export'] ) {
-				unset( $element_data['settings'][ $control['name'] ] );
+			if ('on_export' === $method && isset($control['export']) && false === $control['export']) {
+				unset($element_data['settings'][$control['name']]);
 			}
 		}
 
 		return $element_data;
 	}
 
-	protected function get_export_metadata() {
-		$metadata = get_post_meta( $this->get_main_id() );
+	protected function get_export_metadata()
+	{
+		$metadata = get_post_meta($this->get_main_id());
 
-		foreach ( $metadata as $meta_key => $meta_value ) {
-			if ( is_protected_meta( $meta_key, 'post' ) ) {
-				unset( $metadata[ $meta_key ] );
+		foreach ($metadata as $meta_key => $meta_value) {
+			if (is_protected_meta($meta_key, 'post')) {
+				unset($metadata[$meta_key]);
 
 				continue;
 			}
 
-			$metadata[ $meta_key ] = $meta_value[0];
+			$metadata[$meta_key] = $meta_value[0];
 		}
 
 		return $metadata;
 	}
 
-	protected function get_remote_library_config() {
+	protected function get_remote_library_config()
+	{
 		$config = [
 			'type' => 'block',
 			'default_route' => 'templates/blocks',
@@ -1537,28 +1608,30 @@ abstract class Document extends Controls_Stack {
 	 *
 	 * @param $settings
 	 */
-	protected function save_settings( $settings ) {
-		$page_settings_manager = SettingsManager::get_settings_managers( 'page' );
-		$page_settings_manager->ajax_before_save_settings( $settings, $this->post->ID );
-		$page_settings_manager->save_settings( $settings, $this->post->ID );
+	protected function save_settings($settings)
+	{
+		$page_settings_manager = SettingsManager::get_settings_managers('page');
+		$page_settings_manager->ajax_before_save_settings($settings, $this->post->ID);
+		$page_settings_manager->save_settings($settings, $this->post->ID);
 	}
 
 	/**
 	 * @since 2.1.3
 	 * @access protected
 	 */
-	protected function print_elements( $elements_data ) {
+	protected function print_elements($elements_data)
+	{
 		// Collect all data updaters that should be updated on runtime.
 		$runtime_elements_iteration_actions = $this->get_runtime_elements_iteration_actions();
 
-		if ( $runtime_elements_iteration_actions ) {
-			$this->iterate_elements( $elements_data, $runtime_elements_iteration_actions, 'render' );
+		if ($runtime_elements_iteration_actions) {
+			$this->iterate_elements($elements_data, $runtime_elements_iteration_actions, 'render');
 		}
 
-		foreach ( $elements_data as $element_data ) {
-			$element = Plugin::$instance->elements_manager->create_element_instance( $element_data );
+		foreach ($elements_data as $element_data) {
+			$element = Plugin::$instance->elements_manager->create_element_instance($element_data);
 
-			if ( ! $element ) {
+			if (!$element) {
 				continue;
 			}
 
@@ -1566,11 +1639,12 @@ abstract class Document extends Controls_Stack {
 		}
 	}
 
-	protected function register_document_controls() {
+	protected function register_document_controls()
+	{
 		$this->start_controls_section(
 			'document_settings',
 			[
-				'label' => esc_html__( 'General Settings', 'elementor' ),
+				'label' => esc_html__('General Settings', 'elementor'),
 				'tab' => Controls_Manager::TAB_SETTINGS,
 			]
 		);
@@ -1578,53 +1652,57 @@ abstract class Document extends Controls_Stack {
 		$this->add_control(
 			'post_title',
 			[
-				'label' => esc_html__( 'Title', 'elementor' ),
+				'label' => esc_html__('Title', 'elementor'),
 				'type' => Controls_Manager::TEXT,
 				'default' => $this->post->post_title,
 				'label_block' => true,
 			]
 		);
 
-		$post_type_object = get_post_type_object( $this->post->post_type );
+		$post_type_object = get_post_type_object($this->post->post_type);
 
-		$can_publish = $post_type_object && current_user_can( $post_type_object->cap->publish_posts );
+		$can_publish = $post_type_object && current_user_can($post_type_object->cap->publish_posts);
 		$is_published = self::STATUS_PUBLISH === $this->post->post_status || self::STATUS_PRIVATE === $this->post->post_status;
 
-		if ( $is_published || $can_publish || ! Plugin::$instance->editor->is_edit_mode() ) {
+		if ($is_published || $can_publish || !Plugin::$instance->editor->is_edit_mode()) {
+			if ($this->get_main_post()) {
+				$statuses = $this->get_post_statuses();
+				if ('future' === $this->get_main_post()->post_status) {
+					$statuses['future'] = esc_html__('Future', 'elementor');
+				}
 
-			$statuses = $this->get_post_statuses();
-			if ( 'future' === $this->get_main_post()->post_status ) {
-				$statuses['future'] = esc_html__( 'Future', 'elementor' );
+				$this->add_control(
+					'post_status',
+					[
+						'label' => esc_html__('Status', 'elementor'),
+						'type' => Controls_Manager::SELECT,
+						'default' => $this->get_main_post()->post_status,
+						'options' => $statuses,
+					]
+				);
 			}
-
-			$this->add_control(
-				'post_status',
-				[
-					'label' => esc_html__( 'Status', 'elementor' ),
-					'type' => Controls_Manager::SELECT,
-					'default' => $this->get_main_post()->post_status,
-					'options' => $statuses,
-				]
-			);
 		}
 
 		$this->end_controls_section();
 	}
 
-	protected function get_post_statuses() {
+	protected function get_post_statuses()
+	{
 		return get_post_statuses();
 	}
 
-	protected function get_have_a_look_url() {
+	protected function get_have_a_look_url()
+	{
 		return $this->get_permalink();
 	}
 
-	public function handle_revisions_changed( $post_has_changed, $last_revision, $post ) {
+	public function handle_revisions_changed($post_has_changed, $last_revision, $post)
+	{
 		// In case default, didn't determine the changes.
-		if ( ! $post_has_changed ) {
+		if (!$post_has_changed) {
 			$last_revision_id = $last_revision->ID;
-			$last_revision_document = Plugin::instance()->documents->get( $last_revision_id );
-			$post_document = Plugin::instance()->documents->get( $post->ID );
+			$last_revision_document = Plugin::instance()->documents->get($last_revision_id);
+			$post_document = Plugin::instance()->documents->get($post->ID);
 
 			$last_revision_settings = $last_revision_document->get_settings();
 			$post_settings = $post_document->get_settings();
@@ -1636,21 +1714,24 @@ abstract class Document extends Controls_Stack {
 		return $post_has_changed;
 	}
 
-	private function add_handle_revisions_changed_filter() {
-		add_filter( 'wp_save_post_revision_post_has_changed', [ $this, 'handle_revisions_changed' ], 10, 3 );
+	private function add_handle_revisions_changed_filter()
+	{
+		add_filter('wp_save_post_revision_post_has_changed', [$this, 'handle_revisions_changed'], 10, 3);
 	}
 
-	private function remove_handle_revisions_changed_filter() {
-		remove_filter( 'wp_save_post_revision_post_has_changed', [ $this, 'handle_revisions_changed' ] );
+	private function remove_handle_revisions_changed_filter()
+	{
+		remove_filter('wp_save_post_revision_post_has_changed', [$this, 'handle_revisions_changed']);
 	}
 
-	private function get_runtime_elements_iteration_actions() {
+	private function get_runtime_elements_iteration_actions()
+	{
 		$runtime_elements_iteration_actions = [];
 
 		$elements_iteration_actions = $this->get_elements_iteration_actions();
 
-		foreach ( $elements_iteration_actions as $elements_iteration_action ) {
-			if ( $elements_iteration_action->is_action_needed() ) {
+		foreach ($elements_iteration_actions as $elements_iteration_action) {
+			if ($elements_iteration_action->is_action_needed()) {
 				$runtime_elements_iteration_actions[] = $elements_iteration_action;
 			}
 		}
@@ -1658,43 +1739,45 @@ abstract class Document extends Controls_Stack {
 		return $runtime_elements_iteration_actions;
 	}
 
-	private function iterate_elements( $elements, $elements_iteration_actions, $mode ) {
+	private function iterate_elements($elements, $elements_iteration_actions, $mode)
+	{
 		$unique_page_elements = [];
 
-		foreach ( $elements_iteration_actions as $elements_iteration_action ) {
-			$elements_iteration_action->set_mode( $mode );
+		foreach ($elements_iteration_actions as $elements_iteration_action) {
+			$elements_iteration_action->set_mode($mode);
 		}
 
-		Plugin::$instance->db->iterate_data( $elements, function( array $element_data ) use ( &$unique_page_elements, $elements_iteration_actions ) {
+		Plugin::$instance->db->iterate_data($elements, function (array $element_data) use (&$unique_page_elements, $elements_iteration_actions) {
 			$element_type = 'widget' === $element_data['elType'] ? $element_data['widgetType'] : $element_data['elType'];
 
-			$element = Plugin::$instance->elements_manager->create_element_instance( $element_data );
+			$element = Plugin::$instance->elements_manager->create_element_instance($element_data);
 
-			if ( $element ) {
-				if ( ! in_array( $element_type, $unique_page_elements, true ) ) {
+			if ($element) {
+				if (!in_array($element_type, $unique_page_elements, true)) {
 					$unique_page_elements[] = $element_type;
 
-					foreach ( $elements_iteration_actions as $elements_iteration_action ) {
-						$elements_iteration_action->unique_element_action( $element );
+					foreach ($elements_iteration_actions as $elements_iteration_action) {
+						$elements_iteration_action->unique_element_action($element);
 					}
 				}
 
-				foreach ( $elements_iteration_actions as $elements_iteration_action ) {
-					$elements_iteration_action->element_action( $element );
+				foreach ($elements_iteration_actions as $elements_iteration_action) {
+					$elements_iteration_action->element_action($element);
 				}
 			}
 
 			return $element_data;
-		} );
+		});
 
-		foreach ( $elements_iteration_actions as $elements_iteration_action ) {
+		foreach ($elements_iteration_actions as $elements_iteration_action) {
 			$elements_iteration_action->after_elements_iteration();
 		}
 	}
 
-	private function get_elements_iteration_actions() {
-		if ( ! $this->elements_iteration_actions ) {
-			$this->elements_iteration_actions[] = new Assets_Iteration_Action( $this );
+	private function get_elements_iteration_actions()
+	{
+		if (!$this->elements_iteration_actions) {
+			$this->elements_iteration_actions[] = new Assets_Iteration_Action($this);
 		}
 
 		return $this->elements_iteration_actions;
