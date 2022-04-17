@@ -355,3 +355,6 @@ wp-content/uploads/
 
 # Ignore Wordpress plugins
 wp-content/plugins/all-in-one-wp-migration/
+
+# Ignore Backups
+wp-content/ai1wm-backups/
