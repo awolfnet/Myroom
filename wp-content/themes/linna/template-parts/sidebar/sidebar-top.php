@@ -10,9 +10,11 @@
 
 ?>
 <div class="site-sidebar-top site-primary-bg sidebar-box">
-	<?php $sidebar_top_logo = linna_option(array('sidebar-top-logo', 'url')); ?>
+	<?php global $current_user;
+	wp_get_current_user();	?>
+	<?php $sidebar_top_logo = get_avatar_url($current_user->ID, array('size' => 96)); ?>
 	<?php $sidebar_top_logo_border_radius = linna_option('sidebar-top-logo-border-radius'); ?>
-	<?php $sidebar_top_text_1 = linna_option('sidebar-top-text-1'); ?>
+	<?php $sidebar_top_text_1 = $current_user->display_name; ?>
 	<?php $sidebar_top_text_2 = linna_option('sidebar-top-text-2'); ?>
 
 	<?php if (!empty($sidebar_top_logo)) : ?>
