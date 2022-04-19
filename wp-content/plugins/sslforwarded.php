@@ -12,6 +12,9 @@ Author: Haiyang Wolf
 Version: 1.0.0
 */
 
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly.
+}
 
 if (!function_exists('SSLForwarded')) {
     function SSLForwarded()
