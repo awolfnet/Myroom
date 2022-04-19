@@ -731,7 +731,7 @@ class Timeline_Item_Widget extends Widget_Base {
 	 * @since 1.0.0
 	 * @access protected
 	 */
-	protected function _content_template() {
+	protected function content_template() {
 		?>
 		<# <?php require_once 'content-template.js'; ?> #>
 		<?php

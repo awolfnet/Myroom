@@ -381,7 +381,7 @@ class Title_With_Subtitle_Widget extends Widget_Base {
 	 * @since 1.0.0
 	 * @access protected
 	 */
-	protected function _content_template() {
+	protected function content_template() {
 		?>
 		<#
 		var title = settings.title_title;

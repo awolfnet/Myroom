@@ -29,7 +29,7 @@
 	if (!empty($sidebar_top_text_1)) :
 	?>
 		<h3><?php echo esc_html($sidebar_top_text_1); ?></h3><?php endif; ?>
-	<?php
+	<?php	
 	if (!empty($sidebar_top_text_2)) :
 	?>
 		<h5><?php echo esc_html($sidebar_top_text_2); ?></h5><?php endif; ?>
